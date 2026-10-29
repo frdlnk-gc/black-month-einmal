@@ -182,6 +182,16 @@ section{padding:clamp(56px,6.5vw,104px) 0}
   html:not([data-mode="bestand"]) .allin{margin-top:24px;gap:12px}
   html:not([data-mode="bestand"]) #sec-bewertungen{padding-top:36px}
   #formular-m .hero__side{margin:8px 0 0!important}
+  html:not([data-mode="bestand"]) #sec-ergebnisse,html:not([data-mode="bestand"]) #sec-bewertungen{background:linear-gradient(180deg,rgb(198 241 123/.16),rgb(198 241 123/.22));padding-top:40px;padding-bottom:40px}
+  html:not([data-mode="bestand"]) #sec-ergebnisse{margin-top:28px}
+  html:not([data-mode="bestand"]) #sec-ergebnisse .hc,html:not([data-mode="bestand"]) #sec-bewertungen .rc{box-shadow:none;border-color:rgb(18 100 64/.12)}
+  html:not([data-mode="bestand"]) .top .btn{opacity:0;pointer-events:none;transition:opacity .3s}
+  html:not([data-mode="bestand"]) .vertrag{display:none!important}
+  html:not([data-mode="bestand"]) .staffel .allin{margin:12px 0 0;padding-top:12px;border-top:1px solid var(--gc-line);align-items:flex-start;max-width:none}
+  html:not([data-mode="bestand"]) .hc{flex-direction:column;align-items:flex-start;gap:10px}
+  html:not([data-mode="bestand"]) .hc__logo{width:100%;height:70px;border:1px solid var(--gc-line)}
+  html:not([data-mode="bestand"]) .hc__logo img{max-height:56px;max-width:80%}
+  html.kopf-an .top .btn{opacity:1!important;pointer-events:auto!important}
   .mtrust .st{color:var(--gc-star);letter-spacing:1px;font-size:14px}
   .mtrust b{color:#fff;font-weight:600}
 
@@ -473,7 +483,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
           <div class="mrund-w"><span class="mrund" data-t="mrund"><b>−15 %</b> auf alle Pakete</span></div>
           <h1 data-t="h1"><span class="l">Mitarbeiter finden</span><span class="l akz">zum Black-Month-Deal.</span></h1>
           <p class="lead" data-t="lead">Ihre Stellenanzeige im GreenCareers-Netzwerk mit 30.000+ Fachkräften der grünen Branche. Alle drei Pakete zum Black-Month-Preis, einmal zahlen, kein Abo.</p>
-          <p class="mlead" data-t="mlead">Smart, Premium und Exzellenz. Einmal zahlen, kein Abo.</p>
+          <p class="mlead" data-t="mlead">Smart, Premium und Exzellenz. Einmal zahlen, kein Abo. Nur 30 Plätze.</p>
           <div class="closer" id="closer" hidden=""></div>
           <div class="htrust" id="htrust"><span><b>300+</b> GaLaBau-Betriebe</span><span><b>4,5 ★</b> Google</span><span><b>Ø 45 Tage</b> bis Einstellung</span></div>
           <div class="hpreis" data-t="hpreis"><span class="hp-r">Smart <b>2.550 €</b> <s>2.990 €</s></span><a class="hp-r hp-top" href="#karte-premium">Premium <i class="hp-f">(Vorarbeiter)</i> <b>3.650 €</b> <s>4.290 €</s></a><span class="hp-r hp-m">Exzellenz <b>6.370 €</b> <s>7.490 €</s></span><span class="hp-n">einmalig netto · kein Abo</span><span class="hp-n">Niemand eingestellt? +30&nbsp;Tage gratis</span></div>
@@ -524,7 +534,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
   </div>
 </div>
 
-<section style="padding-bottom:clamp(24px,3vw,48px)">
+<section id="sec-ergebnisse" style="padding-bottom:clamp(24px,3vw,48px)">
   <div class="wrap">
     <div class="sec-head">
       <span class="over">Ergebnisse</span>
@@ -740,7 +750,7 @@ const TEXT = {
     bmLine:'Für Neukunden · nur bis 15.11.<span class="bm-p"> · 30 Plätze</span>',
     h1:'<span class="l">Mitarbeiter finden</span><span class="l akz">zum Black-Month-Deal.</span>',
     lead:'Ihre Stellenanzeige im GreenCareers-Netzwerk mit 30.000+ Fachkräften der grünen Branche. Alle drei Pakete zum Black-Month-Preis, einmal zahlen, kein Abo.',
-    heroBtn:'Paket wählen', hlink:'oder Rückruf anfordern', mlead:'Smart, Premium und Exzellenz. Einmal zahlen, kein Abo.',
+    heroBtn:'Paket wählen', hlink:'oder Rückruf anfordern', mlead:'Smart, Premium und Exzellenz. Einmal zahlen, kein Abo. Nur 30 Plätze.',
     hpreis:'<span class="hp-r">Smart <b>2.550 €</b> <s>2.990 €</s></span><a class="hp-r hp-top" href="#karte-premium">Premium <i class="hp-f">(Vorarbeiter)</i> <b>3.650 €</b> <s>4.290 €</s></a><span class="hp-r hp-m">Exzellenz <b>6.370 €</b> <s>7.490 €</s></span><span class="hp-n">einmalig netto · kein Abo</span><span class="hp-n">Niemand eingestellt? +30&nbsp;Tage gratis</span>',
     mrund:'<b>−15 %</b> auf alle Pakete',
     rund:'<div><small>alle Pakete</small><b>−15 %</b></div>',
@@ -764,7 +774,7 @@ const TEXT = {
     bmLine:'Für Neukunden · 16.–30.11.<span class="bm-p"> · 30 Plätze</span>',
     h1:'<span class="l">Premium-Abo.</span><span class="l akz">Zum Smart&#8209;Preis.</span>',
     lead:'Ihre Stellenanzeige bei GreenCareers ganz oben, dazu auf Instagram und Facebook. Zum Preis des kleinen Pakets, fest für die ganze Laufzeit.',
-    heroBtn:'Premium wählen', hlink:'oder Rückruf anfordern', mlead:'Mehr Reichweite für Ihre Stelle, zum Preis des kleinen Pakets.',
+    heroBtn:'Premium wählen', hlink:'oder Rückruf anfordern', mlead:'Mehr Reichweite für Ihre Stelle, zum Preis des kleinen Pakets. Nur 30 Plätze.',
     hpreis:`<span class="hp-r">Premium <i class="hp-f">(Vorarbeiter)</i> <b>499 €</b> <s>statt ${STATT_PREMIUM_12} €</s></span><span class="hp-v">Anzeige ganz oben + Instagram &amp; Facebook</span><span class="hp-n">im Monat · 12 Monate · gesamt 5.988 € netto</span><span class="hp-k">Keine Setup-Gebühr · in der Laufzeit niemand eingestellt? +30&nbsp;Tage gratis</span>`,
     mrund:`bis zu <b>−${ABO_MAXPCT} %</b> mit Mengenpreis`,
     rund:`<div><small>bis zu</small><b>−${ABO_MAXPCT} %</b><small>Premium-Abo</small></div>`,
@@ -849,6 +859,7 @@ if (NEUKUNDEN && matchMedia('(max-width:899px)').matches) {
   const fs = document.querySelector('.hero__side'), slot = document.getElementById('formular-m'); if (fs && slot && !slot.contains(fs)) slot.appendChild(fs);
   const pk = document.getElementById('pakete'), bw = document.getElementById('sec-bewertungen'), st = document.getElementById('sec-schritte');
   if (pk && bw && st) { pk.before(bw); pk.before(st); }
+  const sf = document.querySelector('.staffel'), al = document.getElementById('allin'); if (sf && al) sf.appendChild(al);
   const tb = document.querySelector('.top .btn');
   if (tb) { if (MODE === 'abo' && !(FREIGABE.abo && KAUF.abo['12'].premium)) { tb.textContent = 'Jetzt beraten lassen'; tb.href = '#formular'; } else { tb.textContent = 'Pakete ansehen'; tb.href = '#pakete'; } }
 }
@@ -1035,7 +1046,7 @@ document.getElementById('rnext').addEventListener('click', () => rtrack.scrollBy
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
 const sticky = document.getElementById('sticky'), heroEl = document.querySelector('.hero');
-new IntersectionObserver(([e]) => sticky.classList.toggle('show', !e.isIntersecting)).observe(heroEl);
+new IntersectionObserver(([e]) => { sticky.classList.toggle('show', !e.isIntersecting); document.documentElement.classList.toggle('kopf-an', !e.isIntersecting); }).observe(heroEl);
 /* Tiefe: leichter Tilt + Lichtpunkt (nur Maus, nicht bei reduzierter Bewegung), Hero-Parallax beim Scrollen */
 if (matchMedia('(hover:hover) and (pointer:fine)').matches && !matchMedia('(prefers-reduced-motion:reduce)').matches) {
   const tilt = (el, max) => {
