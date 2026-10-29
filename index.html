@@ -86,7 +86,9 @@ section{padding:clamp(56px,6.5vw,104px) 0}
 .bm{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap}
 .bm b{background:var(--gc-accent);color:var(--gc-dark-deep);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:6px 10px;border-radius:var(--r-chip)}
 .bm span{font-size:13px;font-weight:600;color:var(--gc-on-dark);letter-spacing:.02em}
-.stage h1{color:#fff;margin-top:14px;max-width:16ch}
+.stage h1{color:#fff;margin-top:14px;font-size:clamp(28px,7.6vw,60px)}
+.stage h1 .l{display:block;white-space:nowrap}
+@media(min-width:900px){.stage h1{font-size:clamp(32px,3.25vw,48px)}}
 .stage .lead{margin-top:14px;font-size:clamp(16px,1.4vw,18px);max-width:520px;color:rgb(234 245 220/.86)}
 .hpreis{display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin-top:16px;background:rgb(255 255 255/.08);border:1px solid rgb(198 241 123/.35);border-radius:var(--r-btn);padding:10px 14px;color:#fff;font-size:15px}
 .hpreis b{font-size:22px;font-weight:700;letter-spacing:-.03em;color:var(--gc-accent)}
@@ -160,7 +162,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
 .pers b{display:block;color:#fff;font-size:15px}
 .pers span{font-size:13px;color:rgb(234 245 220/.7)}
 @media(min-width:900px){
-  .stage__in{grid-template-columns:1.25fr .85fr;align-items:center;padding:56px 56px 52px;gap:48px}
+  .stage__in{grid-template-columns:minmax(0,1.2fr) minmax(360px,.8fr);align-items:center;padding:56px 56px 52px;gap:48px}
   .rund{width:136px;height:136px;top:-34px;right:-26px}.rund b{font-size:34px}.rund b.s{font-size:22px}
   .formcard{padding:28px 26px 22px}
 }
@@ -208,13 +210,18 @@ section{padding:clamp(56px,6.5vw,104px) 0}
 .cards--2{max-width:820px;margin:0 auto}
 @media(min-width:960px){.cards--3{grid-template-columns:1fr 1.08fr 1fr;gap:20px}}
 @media(min-width:760px){.cards--2{grid-template-columns:1fr 1fr}}
-.card{position:relative;background:#fff;border:1px solid var(--gc-line);border-radius:var(--r-card);box-shadow:var(--sh-card);padding:26px 22px 22px;display:flex;flex-direction:column;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s}
-.card:hover{transform:translateY(-4px);box-shadow:var(--sh-card-hover);border-color:var(--gc-action)}
+.cards{perspective:1400px}
+.card{--lift:0px;--rx:0deg;--ry:0deg;transform:translateY(var(--lift)) rotateX(var(--rx)) rotateY(var(--ry));transform-style:preserve-3d;will-change:transform;position:relative;background:#fff;border:1px solid var(--gc-line);border-radius:var(--r-card);box-shadow:var(--sh-card);padding:26px 22px 22px;display:flex;flex-direction:column;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s}
+.card:hover{--lift:-4px;box-shadow:0 2px 6px rgb(20 45 29/.06),0 24px 48px rgb(20 45 29/.10),0 50px 100px rgb(20 45 29/.12);border-color:var(--gc-action)}
+.card::after,.formcard::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgb(255 255 255/.16),transparent 45%);opacity:0;transition:opacity .4s var(--ease)}
+.card:hover::after,.formcard:hover::after{opacity:1}
+.card:not(.card--top)::after{background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgb(198 241 123/.18),transparent 45%)}
+.formcard{position:relative;transform:perspective(1200px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .5s var(--ease);box-shadow:0 2px 6px rgb(0 0 0/.08),0 24px 60px rgb(0 0 0/.22)}
 .card--top{background:linear-gradient(160deg,#1F4A35 0%,var(--gc-dark) 45%,var(--gc-dark-deep) 100%);border:2px solid var(--gc-accent);color:var(--gc-on-dark);box-shadow:0 30px 80px rgb(20 45 29/.32),0 0 0 6px rgb(198 241 123/.18);padding:34px 24px 24px}
 .card--top:hover{border-color:var(--gc-accent)}
-@media(min-width:960px){.cards--3{padding-top:16px}.cards--3 .card--top{transform:translateY(-16px)}.cards--3 .card--top:hover{transform:translateY(-20px)}}
-@media(min-width:760px){.cards--2 .card--top{transform:translateY(-12px)}.cards--2 .card--top:hover{transform:translateY(-16px)}}
-.card--top h3,.card--top .price b{color:#fff}
+@media(min-width:960px){.cards--3{padding-top:16px}.cards--3 .card--top{--lift:-16px}.cards--3 .card--top:hover{--lift:-20px}}
+@media(min-width:760px){.cards--2 .card--top{--lift:-12px}.cards--2 .card--top:hover{--lift:-16px}}
+.card--top h3{color:#fff}
 .card__badge{position:absolute;top:-17px;left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--gc-accent);color:var(--gc-dark-deep);font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:8px 16px;border-radius:var(--r-btn);box-shadow:0 10px 26px rgb(20 45 29/.25)}
 .card__rund{position:absolute;top:-22px;right:-10px;width:92px;height:92px;border-radius:50%;background:var(--gc-accent);color:var(--gc-dark-deep);display:grid;place-items:center;text-align:center;transform:rotate(-8deg);box-shadow:0 14px 30px rgb(20 45 29/.25);line-height:1.05}
 .card__rund b{display:block;font-size:26px;font-weight:700;letter-spacing:-.04em}
@@ -236,7 +243,8 @@ section{padding:clamp(56px,6.5vw,104px) 0}
 .price s{display:inline-block;font-size:16px;font-weight:500;color:var(--gc-ink-muted);text-decoration-thickness:2px}
 .card--top .price s{font-size:20px;font-weight:600;color:#fff;text-decoration-color:var(--gc-accent);text-decoration-thickness:3px}
 .price .ph0{visibility:hidden}
-.price b{display:block;font-size:clamp(38px,3.6vw,46px);font-weight:700;letter-spacing:-.05em;line-height:1.05;color:var(--gc-ink)}
+.price b{display:block;font-size:clamp(38px,3.6vw,46px);font-weight:700;letter-spacing:-.05em;line-height:1.05;background:linear-gradient(120deg,var(--gc-ink),var(--gc-action) 70%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.card--top .price b{background:linear-gradient(120deg,#fff 20%,var(--gc-accent));-webkit-background-clip:text;background-clip:text;color:transparent}
 .card--top .price b{font-size:clamp(52px,5vw,64px)}
 .price b small{font-size:.48em;letter-spacing:-.02em;font-weight:600}
 .price em{display:block;font-style:normal;font-size:13px;color:var(--gc-ink-muted);margin-top:4px}
@@ -327,7 +335,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
 </head>
 <body>
 
-<div class="vorschau" id="vorschau">Vorschau, nicht live. Formular sendet nichts, Kauf-Knöpfe noch ohne Link.</div>
+<div class="vorschau" id="vorschau">Vorschau, nicht live. Formular sendet hier nichts.</div>
 
 <header class="top">
   <div class="wrap">
@@ -342,13 +350,13 @@ section{padding:clamp(56px,6.5vw,104px) 0}
 <section class="hero" style="padding-bottom:0">
   <div class="wrap">
     <div class="stage dark">
-      <div class="stage__bg"></div><div class="stage__glow"></div>
+      <div class="stage__bg" style="transform: scale(1.08);"></div><div class="stage__glow"></div>
       <div class="stage__in">
         <div>
           <div class="pers" id="pers" hidden=""><div class="pers__logo" id="p-logo"></div><div><b id="p-betrieb"></b><span>Bestandskunde</span></div></div>
           <div class="bm"><b>Black Month</b><span data-t="bmLine">Für Neukunden · nur bis 15.11. · 30 Plätze</span></div>
           <div class="mrund-w"><span class="mrund" data-t="mrund"><b>−15 %</b> auf alle Pakete</span></div>
-          <h1 data-t="h1">Mitarbeiter finden. <span class="akz">Alle Pakete reduziert.</span></h1>
+          <h1 data-t="h1"><span class="l">Mitarbeiter finden</span><span class="l akz">zum Black-Month-Deal.</span></h1>
           <p class="lead" data-t="lead">Ihre Stellenanzeige im GreenCareers-Netzwerk mit 30.000+ Fachkräften der grünen Branche. Alle drei Pakete zum Black-Month-Preis, einmal zahlen, kein Abo.</p>
           <div class="hpreis" data-t="hpreis">Smart <b>2.550 €</b> · Premium <b>3.650 €</b> · einmalig netto, kein Abo</div>
           <div class="beweis"><span><b style="color:#fff">Kundenbeispiel:</b> KNAPPMANN, Essen. Vorarbeiter gesucht, 13 Bewerbungen, eingestellt in 28 Tagen.</span></div>
@@ -420,7 +428,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
         <button type="button" data-term="12" role="tab">12 Monate</button>
       </div>
     </div>
-    <div class="cards cards--3" id="cards"><div class="card" data-pkg="smart">
+    <div class="cards cards--3" id="cards"><div class="card" data-pkg="smart" data-t3="1">
     
     
     <h3>Smart</h3>
@@ -436,8 +444,8 @@ section{padding:clamp(56px,6.5vw,104px) 0}
     <hr>
     <div class="feat-l">Im Paket enthalten</div>
     <ul class="feat"><li>Zugang zu 30.000+ Fachkräften im GreenCareers-Netzwerk</li><li>Stellenanzeige mit Ihren Bildern und Videos</li><li>Unpassende Bewerbungen sortieren wir vorher aus</li><li>Bewerber melden sich in 30 Sekunden per Kurzformular</li></ul>
-    <a class="btn btn-main" href="#formular">Smart wählen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a><span class="bhint">Weiter zur Bestellung · Karte oder Rechnung</span><span class="ph">Kauf-Link von Patric eingebaut, klickbar nach seiner Bestätigung (So 01.11.)</span>
-  </div><div class="card card--top" data-pkg="premium">
+    <a class="btn btn-main" href="#formular">Smart wählen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+  </div><div class="card card--top" data-pkg="premium" data-t3="1">
     <div class="card__badge">Empfehlung</div>
     
     <h3>Premium</h3>
@@ -453,8 +461,8 @@ section{padding:clamp(56px,6.5vw,104px) 0}
     <hr>
     <div class="feat-l">Alles aus Smart, plus</div>
     <ul class="feat"><li>Ihre Anzeige ganz oben, auffällig hervorgehoben</li><li>Ausspielung auf Instagram und Facebook</li><li>Einbindung in Ihre Karriereseite</li><li>Gezielte Ausspielung in Ihrer Region</li></ul>
-    <a class="btn btn-main" href="#formular">Premium wählen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a><span class="bhint">Weiter zur Bestellung · Karte oder Rechnung</span><span class="ph">Kauf-Link von Patric eingebaut, klickbar nach seiner Bestätigung (So 01.11.)</span>
-  </div><div class="card" data-pkg="exzellenz">
+    <a class="btn btn-main" href="#formular">Premium wählen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+  </div><div class="card" data-pkg="exzellenz" data-t3="1">
     
     
     <h3>Exzellenz</h3>
@@ -470,7 +478,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
     <hr>
     <div class="feat-l">Alles aus Premium, plus</div>
     <ul class="feat"><li>Direkte Ansprache auf Premium-Karrierenetzwerken</li><li>Recruiting-Partner aus der Branche</li><li>Telefonische Vorqualifizierung aller Bewerber</li><li>90 Tage Laufzeit statt 60</li></ul>
-    <a class="btn btn-main" href="#formular">Exzellenz wählen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a><span class="bhint">Weiter zur Bestellung · Karte oder Rechnung</span><span class="ph">Kauf-Link von Patric eingebaut, klickbar nach seiner Bestätigung (So 01.11.)</span>
+    <a class="btn btn-main" href="#formular">Exzellenz wählen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
   </div></div>
     <p class="legal" style="margin-top:22px;font-size:14px;color:var(--gc-ink)"><b>Mehrere Stellen:</b> jede Stelle günstiger, bei 2 Stellen je −10 %, bei 3 je −20 %, bei 4 je −30 %. Einfach oben in der Karte die Anzahl wählen.</p>
     <div class="allin" id="allin"><span>Einmal zahlen</span><span>Keine Verlängerung, kein Abo</span><span>In der Laufzeit niemand eingestellt? +30 Tage gratis</span></div>
@@ -612,7 +620,7 @@ const TEXT = {
   einmal: {
     topNote:'nur bis 15.11.', topBtn:'Rückruf anfordern',
     bmLine:'Für Neukunden · nur bis 15.11. · 30 Plätze',
-    h1:'Mitarbeiter finden. <span class="akz">Alle Pakete reduziert.</span>',
+    h1:'<span class="l">Mitarbeiter finden</span><span class="l akz">zum Black-Month-Deal.</span>',
     lead:'Ihre Stellenanzeige im GreenCareers-Netzwerk mit 30.000+ Fachkräften der grünen Branche. Alle drei Pakete zum Black-Month-Preis, einmal zahlen, kein Abo.',
     heroBtn:'Paket wählen', hlink:'oder Rückruf anfordern',
     hpreis:'Smart <b>2.550 €</b> · Premium <b>3.650 €</b> · einmalig netto, kein Abo',
@@ -636,7 +644,7 @@ const TEXT = {
   abo: {
     topNote:'16.–30.11.', topBtn:'Rückruf anfordern',
     bmLine:'Für Neukunden · 16.–30.11. · 30 Plätze',
-    h1:'Premium-Abo. <span class="akz">Zum Smart-Preis.</span>',
+    h1:'<span class="l">Premium-Abo.</span><span class="l akz">Zum Smart-Preis.</span>',
     lead:'Ihre Stellenanzeige bei GreenCareers ganz oben, dazu auf Instagram und Facebook. Zum Preis des kleinen Pakets, fest für die ganze Laufzeit.',
     heroBtn:'Premium wählen', hlink:'oder Rückruf anfordern',
     hpreis:`Premium <b>499 €</b> <s>statt ${STATT_PREMIUM_12} €</s> im Monat · 12 Monate · gesamt 5.988 € netto<br><span style="font-size:13px;color:rgb(234 245 220/.8)">Keine Setup-Gebühr · in der Laufzeit niemand eingestellt? +30 Tage gratis</span>`,
@@ -661,7 +669,7 @@ const TEXT = {
   bestand: {
     topNote:'nur für Bestandskunden', topBtn:'Auf die Warteliste',
     bmLine:'Kauf 05.–30.11. · bis dahin Warteliste',
-    h1:'Black-Month-Deal <span class="akz">für Bestandskunden.</span>',
+    h1:'<span class="l">Black-Month-Deal</span><span class="l akz">für Bestandskunden.</span>',
     lead:'Das Premium-Abo für Ihren nächsten Mitarbeiter, nur für Bestandskunden. Im November suchen, im Frühjahr 2027 ist die Kolonne komplett.',
     heroBtn:'Auf die Warteliste', hlink:'oder Preise ansehen',
     mrund:`bis zu <b>−${MAXPCT} %</b> Premium-Abo`,
@@ -757,7 +765,7 @@ function karte(k, p, pr, n, opts) {
   const btn = (opts.smartnote ? `<span class="smartnote" style="margin:0 0 10px">${opts.smartnote}</span>` : '') + (href
     ? `<a class="${bcls}" href="${href}" target="_blank" rel="noopener">${btnTxt} ${ARROW}</a>`
     : `<a class="${bcls}" href="#formular">${opts.ersatzTxt} ${ARROW}</a>`);
-  const hinweis = (opts.hint ? `<span class="bhint">${opts.hint}</span>` : '') + (!href && !LIVE && opts.phHinweis ? `<span class="ph">${opts.phHinweis}</span>` : '');
+  const hinweis = (href && opts.hint) ? `<span class="bhint">${opts.hint}</span>` : (!NEUKUNDEN && opts.hint ? `<span class="bhint">${opts.hint}</span>` : '');
   return `<div class="card${p.top ? ' card--top' : ''}${opts.rund ? ' card--rund' : ''}" data-pkg="${k}">
     ${p.top ? `<div class="card__badge">${p.top}</div>` : ''}
     ${opts.rund ? `<div class="card__rund"><div>${opts.rund}</div></div>` : ''}
@@ -801,7 +809,7 @@ function render() {
         einheit: MODE === 'abo' ? `pro Monat netto · ${term} Monate · gesamt ${eur(jeStelle(preise[k].preis, n) * n * +term)} €` : `einmalig netto · ${p.lauf}`,
         deal: MODE === 'abo' ? '' : '−15 % Black Month',
         btnTxt:`${p.name} wählen`, ersatzTxt:`${p.name} wählen`,
-        hint: (kaufLink(k, n) || !LIVE) ? (MODE === 'abo' ? 'Weiter zur Bestellung · Karte oder SEPA-Lastschrift' : 'Weiter zur Bestellung · Karte oder Rechnung') : 'Wir rufen zurück und schicken Ihnen den Buchungslink.',
+        hint: MODE === 'abo' ? 'Weiter zur Bestellung · Karte oder SEPA-Lastschrift' : 'Weiter zur Bestellung · Karte oder Rechnung',
         smartnote: MODE === 'abo' && k === 'smart' ? `Für ${preise.smart.preis} € bekommen Sie im Black Month schon Premium.` : '',
         soft: MODE === 'abo' && k === 'smart',
         regulaer: MODE === 'abo' && k === 'exzellenz' ? 'Regulärer Preis, nicht Teil der Aktion' : '',
@@ -897,6 +905,23 @@ const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
 const sticky = document.getElementById('sticky'), heroEl = document.querySelector('.hero');
 new IntersectionObserver(([e]) => sticky.classList.toggle('show', !e.isIntersecting)).observe(heroEl);
+/* Tiefe: leichter Tilt + Lichtpunkt (nur Maus, nicht bei reduzierter Bewegung), Hero-Parallax beim Scrollen */
+if (matchMedia('(hover:hover) and (pointer:fine)').matches && !matchMedia('(prefers-reduced-motion:reduce)').matches) {
+  const tilt = (el, max) => {
+    el.addEventListener('pointermove', ev => { const r = el.getBoundingClientRect(), x = (ev.clientX - r.left) / r.width, y = (ev.clientY - r.top) / r.height;
+      el.style.setProperty('--ry', ((x - .5) * max).toFixed(2) + 'deg'); el.style.setProperty('--rx', ((.5 - y) * max).toFixed(2) + 'deg');
+      el.style.setProperty('--mx', (x * 100).toFixed(1) + '%'); el.style.setProperty('--my', (y * 100).toFixed(1) + '%'); });
+    el.addEventListener('pointerleave', () => { el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg'); });
+  };
+  const bind = () => document.querySelectorAll('.card:not([data-t3])').forEach(c => { c.dataset.t3 = 1; tilt(c, 5); });
+  bind(); new MutationObserver(bind).observe(document.getElementById('cards'), { childList:true });
+  const fc = document.querySelector('.formcard'); if (fc) tilt(fc, 3);
+}
+if (!matchMedia('(prefers-reduced-motion:reduce)').matches) {
+  const bg = document.querySelector('.hero .stage__bg'); let tick = false;
+  addEventListener('scroll', () => { if (tick || !bg) return; tick = true; requestAnimationFrame(() => { bg.style.transform = `translate3d(0,${Math.min(scrollY, 800) * 0.12}px,0) scale(1.08)`; tick = false; }); }, { passive:true });
+  if (bg) bg.style.transform = 'scale(1.08)';
+}
 document.documentElement.dataset.ok = '1';
 </script>
 
