@@ -137,6 +137,10 @@ section{padding:clamp(56px,6.5vw,104px) 0}
 
 .blink{display:block;margin-top:10px;text-align:center;font-size:14px;font-weight:600;color:var(--gc-action);text-underline-offset:3px}
 .card--top .blink{color:var(--gc-accent)}
+.staffel{max-width:520px;margin:24px auto 0;background:rgb(255 255 255/.9);border:1px solid var(--gc-line);border-radius:var(--r-card);padding:14px 18px;display:grid;gap:4px;font-size:14px;color:var(--gc-ink)}
+.staffel b{font-weight:600}
+.staffel small{color:var(--gc-ink-muted);font-size:12.5px}
+@media(min-width:760px){.staffel{text-align:center}}
 .bhint{display:block;margin-top:8px;text-align:center;font-size:12.5px;color:var(--gc-ink-muted)}
 .card--top .bhint{color:rgb(234 245 220/.72)}
 .card .btn-soft{background:#fff;color:var(--gc-action);border:1.5px solid var(--gc-action);box-shadow:none}
@@ -558,7 +562,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
     <ul class="feat"><li>Direkte Ansprache auf Premium-Karrierenetzwerken</li><li>Recruiting-Partner aus der Branche</li><li>Telefonische Vorqualifizierung aller Bewerber</li><li>90 Tage Laufzeit statt 60</li></ul>
     <a class="btn btn-main" href="https://www.green-careers.de/kaufen?paket=exzellenz&amp;anzahl=1" target="_blank" rel="noopener">Jetzt buchen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a><span class="bhint">Weiter zur Bestellung · Karte oder Rechnung</span><a class="blink" href="#formular">Jetzt beraten lassen</a>
   </div></div>
-    <p class="legal" style="margin-top:22px;font-size:14px;color:var(--gc-ink)"><b>Mehrere Stellen:</b> jede Stelle zusätzlich günstiger, auch auf den Black-Month-Preis: bei 2&nbsp;Stellen je −10&nbsp;%, bei 3 je −20&nbsp;%, bei 4 je −30&nbsp;%. Einfach oben in der Karte die Anzahl wählen.</p>
+    <div class="staffel"><b>Mehrere Stellen? Jede Stelle wird günstiger, auch auf den Black-Month-Preis:</b><span>2 Stellen: je −10&nbsp;%</span><span>3 Stellen: je −20&nbsp;%</span><span>4 Stellen: je −30&nbsp;%</span><small>Anzahl einfach oben in der Karte wählen.</small></div>
     <div class="allin" id="allin"><span>Einmal zahlen</span><span>Keine Verlängerung, kein Abo</span><span>In der Laufzeit niemand eingestellt? +30&nbsp;Tage gratis</span></div>
     <div class="vertrag" id="vertrag" hidden=""><b>Vertrag in Klartext</b><ul id="vertragList"></ul></div>
     <p class="legal" data-t="legal">Alle Preise netto zzgl. gesetzlicher Umsatzsteuer, nur für Unternehmen und Neukunden. Statt-Preise = reguläre Listenpreise auf green-careers.de. Black-Month-Preise bis 15.11.2026, begrenzt auf 30 Plätze.</p>
