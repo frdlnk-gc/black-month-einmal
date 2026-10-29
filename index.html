@@ -446,7 +446,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
     <hr>
     <div class="feat-l">Im Paket enthalten</div>
     <ul class="feat"><li>Zugang zu 30.000+ Fachkräften im GreenCareers-Netzwerk</li><li>Stellenanzeige mit Ihren Bildern und Videos</li><li>Unpassende Bewerbungen sortieren wir vorher aus</li><li>Bewerber melden sich in 30 Sekunden per Kurzformular</li></ul>
-    <a class="btn btn-main" href="#formular">Beraten lassen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+    <a class="btn btn-main" href="#formular">Jetzt beraten lassen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
   </div><div class="card card--top" data-pkg="premium" data-t3="1">
     <div class="card__badge">Empfehlung</div>
     
@@ -463,7 +463,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
     <hr>
     <div class="feat-l">Alles aus Smart, plus</div>
     <ul class="feat"><li>Ihre Anzeige ganz oben, auffällig hervorgehoben</li><li>Ausspielung auf Instagram und Facebook</li><li>Einbindung in Ihre Karriereseite</li><li>Gezielte Ausspielung in Ihrer Region</li></ul>
-    <a class="btn btn-main" href="#formular">Beraten lassen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+    <a class="btn btn-main" href="#formular">Jetzt beraten lassen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
   </div><div class="card" data-pkg="exzellenz" data-t3="1">
     
     
@@ -480,7 +480,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
     <hr>
     <div class="feat-l">Alles aus Premium, plus</div>
     <ul class="feat"><li>Direkte Ansprache auf Premium-Karrierenetzwerken</li><li>Recruiting-Partner aus der Branche</li><li>Telefonische Vorqualifizierung aller Bewerber</li><li>90 Tage Laufzeit statt 60</li></ul>
-    <a class="btn btn-main" href="#formular">Beraten lassen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+    <a class="btn btn-main" href="#formular">Jetzt beraten lassen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
   </div></div>
     <p class="legal" style="margin-top:22px;font-size:14px;color:var(--gc-ink)"><b>Mehrere Stellen:</b> jede Stelle günstiger, bei 2 Stellen je −10 %, bei 3 je −20 %, bei 4 je −30 %. Einfach oben in der Karte die Anzahl wählen.</p>
     <div class="allin" id="allin"><span>Einmal zahlen</span><span>Keine Verlängerung, kein Abo</span><span>In der Laufzeit niemand eingestellt? +30 Tage gratis</span></div>
@@ -767,8 +767,8 @@ function karte(k, p, pr, n, opts) {
   const btn = (opts.smartnote ? `<span class="smartnote" style="margin:0 0 10px">${opts.smartnote}</span>` : '') + (href
     ? `<a class="${bcls}" href="${href}" target="_blank" rel="noopener">${btnTxt} ${ARROW}</a>`
     : `<a class="${bcls}" href="#formular">${opts.ersatzTxt} ${ARROW}</a>`);
-  /* Neukunden (Freddy 29.10.): primär „Jetzt buchen“ (Patric-Link, nur wenn freigeschaltet), sekundär „Lieber erst beraten lassen“ → Rückruf-Formular */
-  const beraten = NEUKUNDEN && href ? `<a class="blink" href="#formular">Lieber erst beraten lassen</a>` : '';
+  /* Neukunden (Freddy 29.10.): primär „Jetzt buchen“ (Patric-Link, nur wenn freigeschaltet), sekundär „Jetzt beraten lassen“ → Rückruf-Formular */
+  const beraten = NEUKUNDEN && href ? `<a class="blink" href="#formular">Jetzt beraten lassen</a>` : '';
   const hinweis = (href && opts.hint) ? `<span class="bhint">${opts.hint}</span>${beraten}` : (!NEUKUNDEN && opts.hint ? `<span class="bhint">${opts.hint}</span>` : '');
   return `<div class="card${p.top ? ' card--top' : ''}${opts.rund ? ' card--rund' : ''}" data-pkg="${k}">
     ${p.top ? `<div class="card__badge">${p.top}</div>` : ''}
@@ -812,7 +812,7 @@ function render() {
       return karte(k, p, preise[k], n, {
         einheit: MODE === 'abo' ? `pro Monat netto · ${term} Monate · gesamt ${eur(jeStelle(preise[k].preis, n) * n * +term)} €` : `einmalig netto · ${p.lauf}`,
         deal: MODE === 'abo' ? '' : '−15 % Black Month',
-        btnTxt:'Jetzt buchen', ersatzTxt:'Beraten lassen',
+        btnTxt:'Jetzt buchen', ersatzTxt:'Jetzt beraten lassen',
         hint: MODE === 'abo' ? 'Weiter zur Bestellung · Karte oder SEPA-Lastschrift' : 'Weiter zur Bestellung · Karte oder Rechnung',
         smartnote: MODE === 'abo' && k === 'smart' ? `Für ${preise.smart.preis} € bekommen Sie im Black Month schon Premium.` : '',
         soft: MODE === 'abo' && k === 'smart',
