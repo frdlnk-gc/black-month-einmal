@@ -173,6 +173,15 @@ section{padding:clamp(56px,6.5vw,104px) 0}
   html:not([data-mode="bestand"]) .mlead{display:block;margin:14px auto 0;max-width:30ch;font-size:15.5px;line-height:1.5;color:rgb(234 245 220/.82)}
   html:not([data-mode="bestand"]) .hero__cta{margin-top:24px!important}
   html:not([data-mode="bestand"]) .mtrust{display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:18px;font-size:13px;color:rgb(234 245 220/.8)}
+  html:not([data-mode="bestand"]) .fall{background:#fff;color:var(--gc-ink-soft);border:1px solid var(--gc-line)}
+  html:not([data-mode="bestand"]) .fall b{color:var(--gc-ink)}
+  html:not([data-mode="bestand"]) .fall b em{color:var(--gc-action)}
+  html:not([data-mode="bestand"]) .fall span{color:var(--gc-ink-muted)}
+  html:not([data-mode="bestand"]) .fall__logo{border:1px solid var(--gc-line)}
+  html:not([data-mode="bestand"]) #pakete{padding-bottom:24px}
+  html:not([data-mode="bestand"]) .allin{margin-top:24px;gap:12px}
+  html:not([data-mode="bestand"]) #sec-bewertungen{padding-top:36px}
+  #formular-m .hero__side{margin:8px 0 0!important}
   .mtrust .st{color:var(--gc-star);letter-spacing:1px;font-size:14px}
   .mtrust b{color:#fff;font-weight:600}
 
@@ -472,7 +481,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
             <a class="btn btn-accent" href="#pakete"><span data-t="heroBtn">Paket wählen</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
             <a class="hlink" href="#formular" data-t="hlink">oder Rückruf anfordern</a>
           </div>
-          <div class="mtrust"><span class="mt1"><span class="st">★★★★★</span> <b>4,5</b> bei Google</span><span class="mt2"><b>300+</b> GaLaBau-Betriebe stellen mit uns ein</span></div>
+          <div class="mtrust"><span class="mt1"><span class="st">★★★★★</span> <b>4,5</b> bei Google · 31 Bewertungen</span></div>
         </div>
         <div class="hero__side" id="formular">
           <div class="rund" id="rund"><div><small>alle Pakete</small><b>−15 %</b></div></div>
@@ -596,7 +605,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
 </section>
 <div class="wrap" id="formular-m"></div>
 
-<section style="padding-top:clamp(24px,3vw,48px)">
+<section id="sec-schritte" style="padding-top:clamp(24px,3vw,48px)">
   <div class="wrap">
     <div class="sec-head">
       <span class="over">So läuft es</span>
@@ -606,7 +615,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
   </div>
 </section>
 
-<section style="padding-top:0">
+<section id="sec-bewertungen" style="padding-top:0">
   <div class="sec-head wrap">
     <span class="over">Google-Bewertungen</span>
     <h2>Das sagen <span class="akz">unsere Kunden.</span></h2>
@@ -836,7 +845,13 @@ document.getElementById('allin').innerHTML = T.allin.map(c => `<span>${c}</span>
 document.getElementById('steps').innerHTML = T.steps.map(s => `<div class="step rv"><span>${s[0]}</span><h3>${s[1]}</h3><p>${s[2]}</p></div>`).join('');
 document.getElementById('faq').innerHTML = T.faq.map(f => `<details class="rv"><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join('');
 const NEUKUNDEN = MODE !== 'bestand';
-if (NEUKUNDEN && matchMedia('(max-width:899px)').matches) { const fs = document.querySelector('.hero__side'), slot = document.getElementById('formular-m'); if (fs && slot && !slot.contains(fs)) slot.appendChild(fs); }
+if (NEUKUNDEN && matchMedia('(max-width:899px)').matches) {
+  const fs = document.querySelector('.hero__side'), slot = document.getElementById('formular-m'); if (fs && slot && !slot.contains(fs)) slot.appendChild(fs);
+  const pk = document.getElementById('pakete'), bw = document.getElementById('sec-bewertungen'), st = document.getElementById('sec-schritte');
+  if (pk && bw && st) { pk.before(bw); pk.before(st); }
+  const tb = document.querySelector('.top .btn');
+  if (tb) { if (MODE === 'abo' && !(FREIGABE.abo && KAUF.abo['12'].premium)) { tb.textContent = 'Jetzt beraten lassen'; tb.href = '#formular'; } else { tb.textContent = 'Pakete ansehen'; tb.href = '#pakete'; } }
+}
 if (NEUKUNDEN) { for (const id of ['bandBtn','stickyBtn']) { const b = document.getElementById(id); b.href = '#pakete'; (b.querySelector('span') || b).textContent = 'Paket wählen'; } }
 if (MODE === 'abo') { const hb = document.querySelector('.hero__cta .btn');
   if (FREIGABE.abo && KAUF.abo['12'].premium) hb.href = '#karte-premium';
