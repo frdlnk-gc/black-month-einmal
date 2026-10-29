@@ -316,6 +316,9 @@ section{padding:clamp(56px,6.5vw,104px) 0}
 .sticky .btn{min-height:46px;padding:0 18px;font-size:14px}
 @media(min-width:900px){.sticky{display:none}}
 
+.beendet body > *:not(.top):not(.ende):not(.foot):not(script){display:none!important}
+.ende{padding:clamp(32px,6vw,72px) 0}
+.ende h2{color:#fff;max-width:20ch}.ende p{color:rgb(234 245 220/.82)}.beendet .top__right{display:none}
 .vorschau{background:#FFF4DC;color:#6B4200;font-size:12.5px;text-align:center;padding:5px 12px;border-bottom:1px solid #F0D49A}
 .rv{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .rv.in{opacity:1;transform:none}
@@ -433,7 +436,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
     <hr>
     <div class="feat-l">Im Paket enthalten</div>
     <ul class="feat"><li>Zugang zu 30.000+ Fachkräften im GreenCareers-Netzwerk</li><li>Stellenanzeige mit Ihren Bildern und Videos</li><li>Unpassende Bewerbungen sortieren wir vorher aus</li><li>Bewerber melden sich in 30 Sekunden per Kurzformular</li></ul>
-    <a class="btn btn-main" href="#formular">Smart wählen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a><span class="bhint">Weiter zur Bestellung · Karte oder Rechnung</span><span class="ph">Kauf-Link fehlt noch (Patric)</span>
+    <a class="btn btn-main" href="#formular">Smart wählen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a><span class="bhint">Weiter zur Bestellung · Karte oder Rechnung</span><span class="ph">Kauf-Link von Patric eingebaut, klickbar nach seiner Bestätigung (So 01.11.)</span>
   </div><div class="card card--top" data-pkg="premium">
     <div class="card__badge">Empfehlung</div>
     
@@ -450,7 +453,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
     <hr>
     <div class="feat-l">Alles aus Smart, plus</div>
     <ul class="feat"><li>Ihre Anzeige ganz oben, auffällig hervorgehoben</li><li>Ausspielung auf Instagram und Facebook</li><li>Einbindung in Ihre Karriereseite</li><li>Gezielte Ausspielung in Ihrer Region</li></ul>
-    <a class="btn btn-main" href="#formular">Premium wählen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a><span class="bhint">Weiter zur Bestellung · Karte oder Rechnung</span><span class="ph">Kauf-Link fehlt noch (Patric)</span>
+    <a class="btn btn-main" href="#formular">Premium wählen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a><span class="bhint">Weiter zur Bestellung · Karte oder Rechnung</span><span class="ph">Kauf-Link von Patric eingebaut, klickbar nach seiner Bestätigung (So 01.11.)</span>
   </div><div class="card" data-pkg="exzellenz">
     
     
@@ -467,7 +470,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
     <hr>
     <div class="feat-l">Alles aus Premium, plus</div>
     <ul class="feat"><li>Direkte Ansprache auf Premium-Karrierenetzwerken</li><li>Recruiting-Partner aus der Branche</li><li>Telefonische Vorqualifizierung aller Bewerber</li><li>90 Tage Laufzeit statt 60</li></ul>
-    <a class="btn btn-main" href="#formular">Exzellenz wählen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a><span class="bhint">Weiter zur Bestellung · Karte oder Rechnung</span><span class="ph">Kauf-Link fehlt noch (Patric)</span>
+    <a class="btn btn-main" href="#formular">Exzellenz wählen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a><span class="bhint">Weiter zur Bestellung · Karte oder Rechnung</span><span class="ph">Kauf-Link von Patric eingebaut, klickbar nach seiner Bestätigung (So 01.11.)</span>
   </div></div>
     <p class="legal" style="margin-top:22px;font-size:14px;color:var(--gc-ink)"><b>Mehrere Stellen:</b> jede Stelle günstiger, bei 2 Stellen je −10 %, bei 3 je −20 %, bei 4 je −30 %. Einfach oben in der Karte die Anzahl wählen.</p>
     <div class="allin" id="allin"><span>Einmal zahlen</span><span>Keine Verlängerung, kein Abo</span><span>In der Laufzeit niemand eingestellt? +30 Tage gratis</span></div>
@@ -546,9 +549,13 @@ const Q = new URLSearchParams(location.search);
    Neukunden: Links von Patric fehlen noch (Zentrale klärt). Leer = Knopf führt zum Rückruf-Formular.
    Bestandskunden: Patrics Links (nur die 2 Black-Week-Links, Nachzügler entfällt) (Slack C07GRRAR49X, Thread 1793092914.267039). Erst klickbar, wenn Patric sie bestätigt
    hat (Mo 02.11. abends) → dann LINKS_FREIGEGEBEN = true. anzahl = gewählte Stellen (vor Freischaltung mit Patric testen). */
-const LINKS_FREIGEGEBEN = false;
+/* Freigabe je Seite: erst true setzen, wenn Patric die Links nach dem Start bestätigt hat
+   (Einmal: So 01.11. nach Start; Bestand: Mo 02.11.; Abo: Links kommen bis 13.11.). */
+const FREIGABE = { einmal:false, abo:false, bestand:false };
+const LINKS_FREIGEGEBEN = FREIGABE.bestand;
+/* Einmal-Links (Patric, Slack C07GRRAR49X ts 1793265465.670809): Preis + Staffel rechnet seine Kaufseite selbst, kein Code */
 const KAUF = {
-  einmal: { smart:'', premium:'', exzellenz:'' },
+  einmal: { smart:'https://www.green-careers.de/kaufen?paket=smart&anzahl=1', premium:'https://www.green-careers.de/kaufen?paket=premium&anzahl=1', exzellenz:'https://www.green-careers.de/kaufen?paket=exzellenz&anzahl=1' },
   abo: { '6': { smart:'', premium:'', exzellenz:'' }, '12': { smart:'', premium:'', exzellenz:'' } },
   bestand: {
     '6':  'https://www.green-careers.de/abo?gutschein=BLACKWEEK2026&paket=premium&laufzeit=6&anzahl=1',
@@ -694,6 +701,16 @@ if (MODE === 'bestand') {
   });
 }
 
+/* Ab 16.11. 0 Uhr keine Black-Month-Einmalkäufe mehr (Freddy 29.10.): Einmal-Seite zeigt nur noch „Aktion beendet“ + Link.
+   Keine automatische Weiterleitung (Patric leitet /arbeitgeber bis 16.11. hierher, sonst Schleife). Vorschau: ?jetzt=2026-11-16 */
+const JETZT = Q0.get('jetzt') ? new Date(Q0.get('jetzt') + 'T00:00:00+01:00').getTime() : Date.now();
+if (MODE === 'einmal' && JETZT >= new Date('2026-11-16T00:00:00+01:00').getTime()) {
+  document.documentElement.classList.add('beendet');
+  const e = document.createElement('section'); e.className = 'ende';
+  e.innerHTML = '<div class="wrap"><div class="stage dark"><div class="stage__bg"></div><div class="band__in"><span class="over">Black Month</span><h2>Die Black-Month-Aktion <span class="akz">ist beendet.</span></h2><p>Danke für Ihr Interesse. Alle Pakete und Preise finden Sie auf unserer Arbeitgeberseite.</p><a class="btn btn-accent" href="https://www.green-careers.de/arbeitgeber">Zur Arbeitgeberseite</a></div></div></div>';
+  document.querySelector('.top').after(e);
+  document.title = 'Black Month beendet | GreenCareers';
+}
 const T = TEXT[MODE];
 if (document.documentElement.dataset.mode === 'auto') document.title = MODE === 'abo' ? 'Black Month: Premium-Abo zum Smart-Preis | GreenCareers' : 'Black Month: alle Pakete 15 % günstiger | GreenCareers';
 document.querySelectorAll('[data-t]').forEach(el => { if (T[el.dataset.t] !== undefined) el.innerHTML = T[el.dataset.t]; });
@@ -726,7 +743,9 @@ function kaufLink(k, n) {
     if (!LINKS_FREIGEGEBEN || Date.now() < KAUF_AB) return '';
     const u = new URL(KAUF.bestand[k]); u.searchParams.set('anzahl', n); return u.toString();
   }
-  return MODE === 'abo' ? KAUF.abo[term][k] : KAUF.einmal[k];
+  const roh = MODE === 'abo' ? KAUF.abo[term][k] : KAUF.einmal[k];
+  if (!roh || !FREIGABE[MODE]) return '';
+  const u = new URL(roh); u.searchParams.set('anzahl', n); return u.toString();
 }
 
 function karte(k, p, pr, n, opts) {
@@ -786,7 +805,7 @@ function render() {
         smartnote: MODE === 'abo' && k === 'smart' ? `Für ${preise.smart.preis} € bekommen Sie im Black Month schon Premium.` : '',
         soft: MODE === 'abo' && k === 'smart',
         regulaer: MODE === 'abo' && k === 'exzellenz' ? 'Regulärer Preis, nicht Teil der Aktion' : '',
-        phHinweis:'Kauf-Link fehlt noch (Patric)',
+        phHinweis: (MODE === 'abo' ? KAUF.abo[term][k] : KAUF.einmal[k]) ? 'Kauf-Link von Patric eingebaut, klickbar nach seiner Bestätigung (So 01.11.)' : 'Kauf-Link fehlt noch (Patric, bis 13.11.)',
       });
     }).join('');
   }
