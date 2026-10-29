@@ -156,6 +156,27 @@ section{padding:clamp(56px,6.5vw,104px) 0}
 .hp-r+.hp-r::before{content:"·";margin:0 8px 0 2px;color:rgb(234 245 220/.6)}
 .hp-n{display:block;width:100%;font-size:13.5px;color:rgb(234 245 220/.8)}
 .htrust{display:none}
+.mlead,.mtrust{display:none}
+@media(max-width:899px){
+  html:not([data-mode="bestand"]) .stage__in{padding:30px 22px 32px!important;gap:0!important}
+  html:not([data-mode="bestand"]) .hpreis,html:not([data-mode="bestand"]) .htrust,html:not([data-mode="bestand"]) .hlink{display:none!important}
+  html:not([data-mode="bestand"]) .hero__side{display:none}
+  #formular-m .hero__side{display:block;margin:28px 0 0}
+  #formular-m .rund{display:none}
+  html:not([data-mode="bestand"]) .bm{justify-content:center}
+  html:not([data-mode="bestand"]) .bm span{font-size:12.5px!important;color:rgb(234 245 220/.85)}
+  html:not([data-mode="bestand"]) .mrund-w{margin-top:22px}
+  html:not([data-mode="bestand"]) .mrund{margin-top:0!important;padding:8px 16px!important}
+  html:not([data-mode="bestand"]) .mrund b{font-size:24px!important}
+  html:not([data-mode="bestand"]) .stage h1{font-size:7.3vw!important;margin-top:20px!important;line-height:1.1}
+  html:not([data-mode="bestand"]) .bm-p{display:none}
+  html:not([data-mode="bestand"]) .mlead{display:block;margin:14px auto 0;max-width:30ch;font-size:15.5px;line-height:1.5;color:rgb(234 245 220/.82)}
+  html:not([data-mode="bestand"]) .hero__cta{margin-top:24px!important}
+  html:not([data-mode="bestand"]) .mtrust{display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:18px;font-size:13px;color:rgb(234 245 220/.8)}
+  .mtrust .st{color:var(--gc-star);letter-spacing:1px;font-size:14px}
+  .mtrust b{color:#fff;font-weight:600}
+
+}
 .hp-m{display:none}
 .hp-v{display:none}
 .hp-top{color:inherit;text-decoration:none}
@@ -439,10 +460,11 @@ section{padding:clamp(56px,6.5vw,104px) 0}
       <div class="stage__in">
         <div>
           <div class="pers" id="pers" hidden=""><div class="pers__logo" id="p-logo"></div><div><b id="p-betrieb"></b><span>Bestandskunde</span></div></div>
-          <div class="bm"><b>Black Month</b><span data-t="bmLine">Für Neukunden · nur bis 15.11. · 30 Plätze</span></div>
+          <div class="bm"><b>Black Month</b><span data-t="bmLine">Für Neukunden · nur bis 15.11.<span class="bm-p"> · 30 Plätze</span></span></div>
           <div class="mrund-w"><span class="mrund" data-t="mrund"><b>−15 %</b> auf alle Pakete</span></div>
           <h1 data-t="h1"><span class="l">Mitarbeiter finden</span><span class="l akz">zum Black-Month-Deal.</span></h1>
           <p class="lead" data-t="lead">Ihre Stellenanzeige im GreenCareers-Netzwerk mit 30.000+ Fachkräften der grünen Branche. Alle drei Pakete zum Black-Month-Preis, einmal zahlen, kein Abo.</p>
+          <p class="mlead" data-t="mlead">Smart, Premium und Exzellenz. Einmal zahlen, kein Abo.</p>
           <div class="closer" id="closer" hidden=""></div>
           <div class="htrust" id="htrust"><span><b>300+</b> GaLaBau-Betriebe</span><span><b>4,5 ★</b> Google</span><span><b>Ø 45 Tage</b> bis Einstellung</span></div>
           <div class="hpreis" data-t="hpreis"><span class="hp-r">Smart <b>2.550 €</b> <s>2.990 €</s></span><a class="hp-r hp-top" href="#karte-premium">Premium <i class="hp-f">(Vorarbeiter)</i> <b>3.650 €</b> <s>4.290 €</s></a><span class="hp-r hp-m">Exzellenz <b>6.370 €</b> <s>7.490 €</s></span><span class="hp-n">einmalig netto · kein Abo</span><span class="hp-n">Niemand eingestellt? +30&nbsp;Tage gratis</span></div>
@@ -450,6 +472,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
             <a class="btn btn-accent" href="#pakete"><span data-t="heroBtn">Paket wählen</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
             <a class="hlink" href="#formular" data-t="hlink">oder Rückruf anfordern</a>
           </div>
+          <div class="mtrust"><span class="mt1"><span class="st">★★★★★</span> <b>4,5</b> bei Google</span><span class="mt2"><b>300+</b> GaLaBau-Betriebe stellen mit uns ein</span></div>
         </div>
         <div class="hero__side" id="formular">
           <div class="rund" id="rund"><div><small>alle Pakete</small><b>−15 %</b></div></div>
@@ -571,6 +594,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
     <p class="legal" data-t="legal">Alle Preise netto zzgl. gesetzlicher Umsatzsteuer, nur für Unternehmen und Neukunden. Statt-Preise = reguläre Listenpreise auf green-careers.de. Black-Month-Preise bis 15.11.2026, begrenzt auf 30 Plätze.</p>
   </div>
 </section>
+<div class="wrap" id="formular-m"></div>
 
 <section style="padding-top:clamp(24px,3vw,48px)">
   <div class="wrap">
@@ -704,10 +728,10 @@ const FEAT_BESTAND = ['Zugang zu 30.000+ Fachkräften der grünen Branche','Ihre
 const TEXT = {
   einmal: {
     topNote:'nur bis 15.11.', topBtn:'Rückruf anfordern',
-    bmLine:'Für Neukunden · nur bis 15.11. · 30 Plätze',
+    bmLine:'Für Neukunden · nur bis 15.11.<span class="bm-p"> · 30 Plätze</span>',
     h1:'<span class="l">Mitarbeiter finden</span><span class="l akz">zum Black-Month-Deal.</span>',
     lead:'Ihre Stellenanzeige im GreenCareers-Netzwerk mit 30.000+ Fachkräften der grünen Branche. Alle drei Pakete zum Black-Month-Preis, einmal zahlen, kein Abo.',
-    heroBtn:'Paket wählen', hlink:'oder Rückruf anfordern',
+    heroBtn:'Paket wählen', hlink:'oder Rückruf anfordern', mlead:'Smart, Premium und Exzellenz. Einmal zahlen, kein Abo.',
     hpreis:'<span class="hp-r">Smart <b>2.550 €</b> <s>2.990 €</s></span><a class="hp-r hp-top" href="#karte-premium">Premium <i class="hp-f">(Vorarbeiter)</i> <b>3.650 €</b> <s>4.290 €</s></a><span class="hp-r hp-m">Exzellenz <b>6.370 €</b> <s>7.490 €</s></span><span class="hp-n">einmalig netto · kein Abo</span><span class="hp-n">Niemand eingestellt? +30&nbsp;Tage gratis</span>',
     mrund:'<b>−15 %</b> auf alle Pakete',
     rund:'<div><small>alle Pakete</small><b>−15 %</b></div>',
@@ -728,10 +752,10 @@ const TEXT = {
   },
   abo: {
     topNote:'16.–30.11.', topBtn:'Rückruf anfordern',
-    bmLine:'Für Neukunden · 16.–30.11. · 30 Plätze',
+    bmLine:'Für Neukunden · 16.–30.11.<span class="bm-p"> · 30 Plätze</span>',
     h1:'<span class="l">Premium-Abo.</span><span class="l akz">Zum Smart&#8209;Preis.</span>',
     lead:'Ihre Stellenanzeige bei GreenCareers ganz oben, dazu auf Instagram und Facebook. Zum Preis des kleinen Pakets, fest für die ganze Laufzeit.',
-    heroBtn:'Premium wählen', hlink:'oder Rückruf anfordern',
+    heroBtn:'Premium wählen', hlink:'oder Rückruf anfordern', mlead:'Mehr Reichweite für Ihre Stelle, zum Preis des kleinen Pakets.',
     hpreis:`<span class="hp-r">Premium <i class="hp-f">(Vorarbeiter)</i> <b>499 €</b> <s>statt ${STATT_PREMIUM_12} €</s></span><span class="hp-v">Anzeige ganz oben + Instagram &amp; Facebook</span><span class="hp-n">im Monat · 12 Monate · gesamt 5.988 € netto</span><span class="hp-k">Keine Setup-Gebühr · in der Laufzeit niemand eingestellt? +30&nbsp;Tage gratis</span>`,
     mrund:`bis zu <b>−${ABO_MAXPCT} %</b> mit Mengenpreis`,
     rund:`<div><small>bis zu</small><b>−${ABO_MAXPCT} %</b><small>Premium-Abo</small></div>`,
@@ -812,11 +836,12 @@ document.getElementById('allin').innerHTML = T.allin.map(c => `<span>${c}</span>
 document.getElementById('steps').innerHTML = T.steps.map(s => `<div class="step rv"><span>${s[0]}</span><h3>${s[1]}</h3><p>${s[2]}</p></div>`).join('');
 document.getElementById('faq').innerHTML = T.faq.map(f => `<details class="rv"><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join('');
 const NEUKUNDEN = MODE !== 'bestand';
+if (NEUKUNDEN && matchMedia('(max-width:899px)').matches) { const fs = document.querySelector('.hero__side'), slot = document.getElementById('formular-m'); if (fs && slot && !slot.contains(fs)) slot.appendChild(fs); }
 if (NEUKUNDEN) { for (const id of ['bandBtn','stickyBtn']) { const b = document.getElementById(id); b.href = '#pakete'; (b.querySelector('span') || b).textContent = 'Paket wählen'; } }
 if (MODE === 'abo') { const hb = document.querySelector('.hero__cta .btn');
   if (FREIGABE.abo && KAUF.abo['12'].premium) hb.href = '#karte-premium';
-  else { hb.href = '#formular'; hb.querySelector('span').textContent = 'Platz per Rückruf sichern';
-    for (const id of ['bandBtn','stickyBtn']) { const b = document.getElementById(id); b.href = '#formular'; (b.querySelector('span') || b).textContent = 'Platz per Rückruf sichern'; } } }
+  else { hb.href = '#formular'; hb.querySelector('span').textContent = 'Jetzt beraten lassen';
+    for (const id of ['bandBtn','stickyBtn']) { const b = document.getElementById(id); b.href = '#formular'; (b.querySelector('span') || b).textContent = 'Jetzt beraten lassen'; } } }
 if (!NEUKUNDEN) { document.querySelector('.hero__cta .btn').href = '#formular'; document.querySelector('.hlink').href = '#pakete'; document.querySelector('.beweis')?.remove(); }
 document.querySelectorAll('[data-only]').forEach(el => { if ((el.dataset.only === 'bestand') === NEUKUNDEN) el.remove(); });
 if (MODE === 'bestand' && P.b) {
@@ -899,7 +924,7 @@ function render() {
       return karte(k, p, preise[k], n, {
         einheit: MODE === 'abo' ? `pro Monat netto · ${term} Monate · gesamt ${eur(jeStelle(preise[k].preis, n) * n * +term)} €` : `einmalig netto · ${p.lauf}`,
         deal: MODE === 'abo' ? '' : '−15 % Black Month',
-        btnTxt:'Jetzt buchen', ersatzTxt: MODE === 'abo' && k === 'premium' ? 'Premium per Rückruf sichern' : 'Jetzt beraten lassen',
+        btnTxt:'Jetzt buchen', ersatzTxt:'Jetzt beraten lassen',
         hint: MODE === 'abo' ? 'Weiter zur Bestellung · Karte oder SEPA-Lastschrift' : 'Weiter zur Bestellung · Karte oder Rechnung',
         smartnote: MODE === 'abo' && k === 'smart' ? `Für ${preise.smart.preis} € bekommen Sie im Black Month schon Premium.` : '',
         soft: MODE === 'abo' && k === 'smart',
