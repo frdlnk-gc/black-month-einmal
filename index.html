@@ -151,6 +151,8 @@ section{padding:clamp(56px,6.5vw,104px) 0}
 .hp-k{display:block;width:100%;font-size:13px;color:rgb(234 245 220/.8)}
 .hp-r+.hp-r::before,.hp-n::before{content:"·";margin:0 8px 0 2px;color:rgb(234 245 220/.6)}
 .htrust{display:none}
+.hp-m{display:none}
+.hpreis s{color:rgb(234 245 220/.6);font-size:.9em;text-decoration-thickness:2px}
 @media(max-width:899px){
   html:not([data-mode="bestand"]) .stage__in>div:first-child{text-align:center}
   html:not([data-mode="bestand"]) .bm,html:not([data-mode="bestand"]) .hero__cta{justify-content:center}
@@ -159,12 +161,15 @@ section{padding:clamp(56px,6.5vw,104px) 0}
   html:not([data-mode="bestand"]) .stage h1{margin-top:12px}
   html:not([data-mode="bestand"]) .hpreis{display:grid;gap:2px;justify-items:center;text-align:center;width:100%;margin-top:14px}
   .hp-r,.hp-n{display:block}
-  .hp-k{font-size:12px;margin-top:2px}
+  .hp-k{display:none}
+  .hp-m{display:block}
+  html:not([data-mode="bestand"]) .htrust{margin:10px 0 0}
+  .allin{flex-direction:column;align-items:flex-start;max-width:320px;margin-left:auto;margin-right:auto}
   .hp-r+.hp-r::before,.hp-n::before{content:none}
   .hp-n{font-size:13px;color:rgb(234 245 220/.78)}
   html:not([data-mode="bestand"]) .hero__cta .btn{width:100%}
   html:not([data-mode="bestand"]) .hlink{width:100%;justify-content:center;min-height:40px}
-  html:not([data-mode="bestand"]) .htrust{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:14px}
+  html:not([data-mode="bestand"]) .htrust{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
   .htrust span{font-size:12.5px;color:var(--gc-on-dark);background:rgb(255 255 255/.08);border:1px solid rgb(234 245 220/.18);border-radius:var(--r-chip);padding:5px 9px}
   .htrust b{color:var(--gc-accent);font-weight:700}
   .stage__in{padding:20px 18px 20px}
@@ -404,9 +409,9 @@ section{padding:clamp(56px,6.5vw,104px) 0}
           <div class="mrund-w"><span class="mrund" data-t="mrund"><b>−15 %</b> auf alle Pakete</span></div>
           <h1 data-t="h1"><span class="l">Mitarbeiter finden</span><span class="l akz">zum Black-Month-Deal.</span></h1>
           <p class="lead" data-t="lead">Ihre Stellenanzeige im GreenCareers-Netzwerk mit 30.000+ Fachkräften der grünen Branche. Alle drei Pakete zum Black-Month-Preis, einmal zahlen, kein Abo.</p>
-          <div class="hpreis" data-t="hpreis"><span class="hp-r">Smart <b>2.550 €</b></span><span class="hp-r">Premium <b>3.650 €</b></span><span class="hp-n">einmalig netto, kein Abo</span></div>
           <div class="closer" id="closer" hidden=""></div>
           <div class="htrust" id="htrust"><span><b>300+</b> GaLaBau-Betriebe</span><span><b>4,5 ★</b> Google</span><span><b>Ø 45 Tage</b> bis zur Einstellung</span></div>
+          <div class="hpreis" data-t="hpreis"><span class="hp-r">Smart <b>2.550 €</b> <s>2.990 €</s></span><span class="hp-r">Premium <b>3.650 €</b> <s>4.290 €</s></span><span class="hp-r hp-m">Exzellenz <b>6.370 €</b> <s>7.490 €</s></span><span class="hp-n">einmalig netto, kein Abo</span></div>
           <div class="hero__cta">
             <a class="btn btn-accent" href="#pakete"><span data-t="heroBtn">Paket wählen</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
             <a class="hlink" href="#formular" data-t="hlink">oder Rückruf anfordern</a>
@@ -446,7 +451,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
     <div class="panel">
       <div class="panel__top">
         <div class="big"><b>300+</b><span>GaLaBau-Betriebe stellen mit uns ein.</span></div>
-        <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>Eingestellt in durchschnittlich 45 Tagen</span>
+        <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>Eingestellt in durchschnittlich 45&nbsp;Tagen</span>
       </div>
       <div class="logos"><div class="logos__track" id="logos"><div><img src="img/logos/roring.png" alt="" loading="lazy"></div><div><img src="img/logos/diederich.png" alt="" loading="lazy"></div><div><img src="img/logos/knappmann.png" alt="" loading="lazy"></div><div><img src="img/logos/lemberghof.png" alt="" loading="lazy"></div><div><img src="img/logos/floreana.png" alt="" loading="lazy"></div><div><img src="img/logos/beck.png" alt="" loading="lazy"></div><div><img src="img/logos/huben.png" alt="" loading="lazy"></div><div><img src="img/logos/spilker.png" alt="" loading="lazy"></div><div><img src="img/logos/garten-linke.png" alt="" loading="lazy"></div><div><img src="img/logos/astwerk.png" alt="" loading="lazy"></div><div><img src="img/logos/goldblume.png" alt="" loading="lazy"></div><div><img src="img/logos/lieblingsgaertner.png" alt="" loading="lazy"></div><div><img src="img/logos/prager-kurz.png" alt="" loading="lazy"></div><div><img src="img/logos/gruenkonzept.png" alt="" loading="lazy"></div><div><img src="img/logos/gerlach.png" alt="" loading="lazy"></div><div><img src="img/logos/blumenkamp.png" alt="" loading="lazy"></div><div><img src="img/logos/idh.png" alt="" loading="lazy"></div><div><img src="img/logos/reiss.png" alt="" loading="lazy"></div><div><img src="img/logos/schenk.png" alt="" loading="lazy"></div><div><img src="img/logos/gruenbau.png" alt="" loading="lazy"></div><div><img src="img/logos/groebner.png" alt="" loading="lazy"></div><div><img src="img/logos/roring.png" alt="" loading="lazy"></div><div><img src="img/logos/diederich.png" alt="" loading="lazy"></div><div><img src="img/logos/knappmann.png" alt="" loading="lazy"></div><div><img src="img/logos/lemberghof.png" alt="" loading="lazy"></div><div><img src="img/logos/floreana.png" alt="" loading="lazy"></div><div><img src="img/logos/beck.png" alt="" loading="lazy"></div><div><img src="img/logos/huben.png" alt="" loading="lazy"></div><div><img src="img/logos/spilker.png" alt="" loading="lazy"></div><div><img src="img/logos/garten-linke.png" alt="" loading="lazy"></div><div><img src="img/logos/astwerk.png" alt="" loading="lazy"></div><div><img src="img/logos/goldblume.png" alt="" loading="lazy"></div><div><img src="img/logos/lieblingsgaertner.png" alt="" loading="lazy"></div><div><img src="img/logos/prager-kurz.png" alt="" loading="lazy"></div><div><img src="img/logos/gruenkonzept.png" alt="" loading="lazy"></div><div><img src="img/logos/gerlach.png" alt="" loading="lazy"></div><div><img src="img/logos/blumenkamp.png" alt="" loading="lazy"></div><div><img src="img/logos/idh.png" alt="" loading="lazy"></div><div><img src="img/logos/reiss.png" alt="" loading="lazy"></div><div><img src="img/logos/schenk.png" alt="" loading="lazy"></div><div><img src="img/logos/gruenbau.png" alt="" loading="lazy"></div><div><img src="img/logos/groebner.png" alt="" loading="lazy"></div></div></div>
     </div>
@@ -527,7 +532,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
     <a class="btn btn-main" href="https://www.green-careers.de/kaufen?paket=exzellenz&amp;anzahl=1" target="_blank" rel="noopener">Jetzt buchen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a><span class="bhint">Weiter zur Bestellung · Karte oder Rechnung</span><a class="blink" href="#formular">Jetzt beraten lassen</a>
   </div></div>
     <p class="legal" style="margin-top:22px;font-size:14px;color:var(--gc-ink)"><b>Mehrere Stellen:</b> jede Stelle günstiger, bei 2 Stellen je −10 %, bei 3 je −20 %, bei 4 je −30 %. Einfach oben in der Karte die Anzahl wählen.</p>
-    <div class="allin" id="allin"><span>Einmal zahlen</span><span>Keine Verlängerung, kein Abo</span><span>In der Laufzeit niemand eingestellt? +30 Tage gratis</span></div>
+    <div class="allin" id="allin"><span>Einmal zahlen</span><span>Keine Verlängerung, kein Abo</span><span>In der Laufzeit niemand eingestellt? +30&nbsp;Tage gratis</span></div>
     <div class="vertrag" id="vertrag" hidden=""><b>Vertrag in Klartext</b><ul id="vertragList"></ul></div>
     <p class="legal" data-t="legal">Alle Preise netto zzgl. gesetzlicher Umsatzsteuer, nur für Unternehmen und Neukunden. Statt-Preise = reguläre Listenpreise auf green-careers.de. Black-Month-Preise bis 15.11.2026, begrenzt auf 30 Plätze.</p>
   </div>
@@ -559,7 +564,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
       <span class="over">Fragen</span>
       <h2>Kurz <span class="akz">beantwortet.</span></h2>
     </div>
-    <div class="faq" id="faq"><details class="rv"><summary>Wie lange läuft meine Anzeige?</summary><p>Smart und Premium 60 Tage, Exzellenz 90 Tage. Wird in dieser Zeit niemand eingestellt, kommen 30 Tage ohne Aufpreis dazu.</p></details><details class="rv"><summary>Verlängert sich das Paket automatisch?</summary><p>Nein. Sie zahlen einmal, kein Abo.</p></details><details class="rv"><summary>Ich suche mehrere Mitarbeiter.</summary><p>Bei mehreren Stellen wird jede Stelle günstiger: je 10 % bei 2, je 20 % bei 3, je 30 % bei 4 Stellen. Zusätzlich zum Black-Month-Preis.</p></details><details class="rv"><summary>Was heißt „+30 Tage gratis“?</summary><p>Wird die gesuchte Person innerhalb der regulären Laufzeit nicht eingestellt, kommen 30 zusätzliche Tage ohne Aufpreis dazu. Eine Einstellung wird nicht zugesagt.</p></details><details class="rv"><summary>Wie schnell finde ich jemanden?</summary><p>Unsere Kunden stellen im Durchschnitt in 45 Tagen ein.</p></details></div>
+    <div class="faq" id="faq"><details class="rv"><summary>Wie lange läuft meine Anzeige?</summary><p>Smart und Premium 60 Tage, Exzellenz 90 Tage. Wird in dieser Zeit niemand eingestellt, kommen 30 Tage ohne Aufpreis dazu.</p></details><details class="rv"><summary>Verlängert sich das Paket automatisch?</summary><p>Nein. Sie zahlen einmal, kein Abo.</p></details><details class="rv"><summary>Ich suche mehrere Mitarbeiter.</summary><p>Bei mehreren Stellen wird jede Stelle günstiger: je 10 % bei 2, je 20 % bei 3, je 30 % bei 4 Stellen. Zusätzlich zum Black-Month-Preis.</p></details><details class="rv"><summary>Was heißt „+30&nbsp;Tage gratis“?</summary><p>Wird die gesuchte Person innerhalb der regulären Laufzeit nicht eingestellt, kommen 30 zusätzliche Tage ohne Aufpreis dazu. Eine Einstellung wird nicht zugesagt.</p></details><details class="rv"><summary>Wie schnell finde ich jemanden?</summary><p>Unsere Kunden stellen im Durchschnitt in 45 Tagen ein.</p></details></div>
   </div>
 </section>
 
@@ -669,20 +674,20 @@ const TEXT = {
     h1:'<span class="l">Mitarbeiter finden</span><span class="l akz">zum Black-Month-Deal.</span>',
     lead:'Ihre Stellenanzeige im GreenCareers-Netzwerk mit 30.000+ Fachkräften der grünen Branche. Alle drei Pakete zum Black-Month-Preis, einmal zahlen, kein Abo.',
     heroBtn:'Paket wählen', hlink:'oder Rückruf anfordern',
-    hpreis:'<span class="hp-r">Smart <b>2.550 €</b></span><span class="hp-r">Premium <b>3.650 €</b></span><span class="hp-n">einmalig netto, kein Abo</span>',
+    hpreis:'<span class="hp-r">Smart <b>2.550 €</b> <s>2.990 €</s></span><span class="hp-r">Premium <b>3.650 €</b> <s>4.290 €</s></span><span class="hp-r hp-m">Exzellenz <b>6.370 €</b> <s>7.490 €</s></span><span class="hp-n">einmalig netto, kein Abo</span>',
     mrund:'<b>−15 %</b> auf alle Pakete',
     rund:'<div><small>alle Pakete</small><b>−15 %</b></div>',
     formKicker:'Kostenloser Rückruf', formH:'Wir rufen Sie zurück.', formBtn:'Rückruf anfordern', formBtnSmall:'unverbindlich · dauert 10 Sekunden',
     formNote:'Preise netto zzgl. USt., nur für Unternehmen.',
     doneH:'Danke, wir melden uns.', doneP:'Unser Vertrieb ruft Sie schnellstmöglich zurück.',
     pOver:'Pakete', pH2:'Drei Pakete. <span class="akz">Alle 15 % günstiger.</span>',
-    allin:['Einmal zahlen','Keine Verlängerung, kein Abo','In der Laufzeit niemand eingestellt? +30 Tage gratis'],
+    allin:['Einmal zahlen','Keine Verlängerung, kein Abo','In der Laufzeit niemand eingestellt? +30&nbsp;Tage gratis'],
     legal:'Alle Preise netto zzgl. gesetzlicher Umsatzsteuer, nur für Unternehmen und Neukunden. Statt-Preise = reguläre Listenpreise auf green-careers.de. Black-Month-Preise bis 15.11.2026, begrenzt auf 30 Plätze.',
     steps:[['01','Paket wählen.','Paket und Anzahl der Stellen wählen oder kurz mit uns sprechen.'],['02','Betrieb zeigen.','Position, Ort, ein paar Bilder. Wir bauen Ihre Anzeige.'],['03','Bewerber kennenlernen.','Passende Bewerbungen kommen direkt zu Ihnen.']],
     faq:[['Wie lange läuft meine Anzeige?','Smart und Premium 60 Tage, Exzellenz 90 Tage. Wird in dieser Zeit niemand eingestellt, kommen 30 Tage ohne Aufpreis dazu.'],
          ['Verlängert sich das Paket automatisch?','Nein. Sie zahlen einmal, kein Abo.'],
          ['Ich suche mehrere Mitarbeiter.','Bei mehreren Stellen wird jede Stelle günstiger: je 10 % bei 2, je 20 % bei 3, je 30 % bei 4 Stellen. Zusätzlich zum Black-Month-Preis.'],
-         ['Was heißt „+30 Tage gratis“?','Wird die gesuchte Person innerhalb der regulären Laufzeit nicht eingestellt, kommen 30 zusätzliche Tage ohne Aufpreis dazu. Eine Einstellung wird nicht zugesagt.'],
+         ['Was heißt „+30&nbsp;Tage gratis“?','Wird die gesuchte Person innerhalb der regulären Laufzeit nicht eingestellt, kommen 30 zusätzliche Tage ohne Aufpreis dazu. Eine Einstellung wird nicht zugesagt.'],
          ['Wie schnell finde ich jemanden?','Unsere Kunden stellen im Durchschnitt in 45 Tagen ein.']],
     bandH2:'Ihr nächster Mitarbeiter. <span class="akz">Zum Black-Month-Preis.</span>', bandP:'Alle Pakete 15 % günstiger, nur bis 15. November.',
     stickySmall:'Black Month bis 15.11.', stickyB:'Alle Pakete −15 %',
@@ -690,17 +695,17 @@ const TEXT = {
   abo: {
     topNote:'16.–30.11.', topBtn:'Rückruf anfordern',
     bmLine:'Für Neukunden · 16.–30.11. · 30 Plätze',
-    h1:'<span class="l">Premium-Abo.</span><span class="l akz">Zum Smart-Preis.</span>',
+    h1:'<span class="l">Premium-Abo.</span><span class="l akz">Zum Smart&#8209;Preis.</span>',
     lead:'Ihre Stellenanzeige bei GreenCareers ganz oben, dazu auf Instagram und Facebook. Zum Preis des kleinen Pakets, fest für die ganze Laufzeit.',
     heroBtn:'Premium wählen', hlink:'oder Rückruf anfordern',
-    hpreis:`<span class="hp-r">Premium <b>499 €</b> <s>statt ${STATT_PREMIUM_12} €</s></span><span class="hp-n">im Monat · 12 Monate · gesamt 5.988 € netto</span><span class="hp-k">Keine Setup-Gebühr · in der Laufzeit niemand eingestellt? +30 Tage gratis</span>`,
-    mrund:`bis zu <b>−${ABO_MAXPCT} %</b> Premium-Abo`,
+    hpreis:`<span class="hp-r">Premium <b>499 €</b> <s>statt ${STATT_PREMIUM_12} €</s></span><span class="hp-n">im Monat · 12 Monate · gesamt 5.988 € netto</span><span class="hp-k">Keine Setup-Gebühr · in der Laufzeit niemand eingestellt? +30&nbsp;Tage gratis</span>`,
+    mrund:`bis zu <b>−${ABO_MAXPCT} %</b> mit Mengenpreis`,
     rund:`<div><small>bis zu</small><b>−${ABO_MAXPCT} %</b><small>Premium-Abo</small></div>`,
     formKicker:'Kostenloser Rückruf', formH:'Wir rufen Sie zurück.', formBtn:'Rückruf anfordern', formBtnSmall:'unverbindlich · dauert 10 Sekunden',
     formNote:'Preise netto zzgl. USt., nur für Unternehmen.',
     doneH:'Danke, wir melden uns.', doneP:'Unser Vertrieb ruft Sie schnellstmöglich zurück.',
-    pOver:'Pakete', pH2:'Premium. <span class="akz">Zum Smart-Preis.</span>',
-    allin:['Preis fest für die ganze Laufzeit','Keine Setup-Gebühr','Stelle besetzt? Nächste Stelle drauf.','In der Laufzeit niemand eingestellt? +30 Tage gratis'],
+    pOver:'Pakete', pH2:'Premium. <span class="akz">Zum Smart&#8209;Preis.</span>',
+    allin:['Preis fest für die ganze Laufzeit','Keine Setup-Gebühr','Stelle besetzt? Nächste Stelle drauf.','In der Laufzeit niemand eingestellt? +30&nbsp;Tage gratis'],
     legal:`Alle Preise netto pro Monat zzgl. gesetzlicher Umsatzsteuer, nur für Unternehmen und Neukunden. Statt-Preise = reguläre Listenpreise auf <a href="https://www.green-careers.de/abo" target="_blank" rel="noopener">green-careers.de/abo</a>. Black-Month-Preis bei Abschluss vom 16.11. bis 30.11.2026, begrenzt auf 30 Plätze. „Bis zu −${ABO_MAXPCT} %“: Premium 12 Monate mit 4 Stellen, je Stelle ${(PREISE.abo['12'].premium.preis*0.7).toLocaleString('de-DE',{minimumFractionDigits:2})} € statt ${STATT_PREMIUM_12} € im Monat.`,
     steps:[['01','Abo wählen.','Paket, Laufzeit und Stellen wählen oder kurz mit uns sprechen.'],['02','Betrieb zeigen.','Position, Ort, ein paar Bilder. Wir bauen Ihre Anzeige.'],['03','Bewerber kennenlernen.','Laufend passende Bewerbungen, direkt zu Ihnen.']],
     faq:[['Gilt der Preis nur im ersten Monat?','Nein. Ihr Preis bleibt, solange das Abo läuft.'],
@@ -725,7 +730,7 @@ const TEXT = {
     formNote:'',
     doneH:'Sie sind vorgemerkt.', doneP:'Ihr Ansprechpartner meldet sich ab Di 03.11. bei Ihnen. Buchen können Sie ab Do 05.11. Die 30 Plätze gehen in der Reihenfolge der Einträge.',
     pOver:'Ihr Angebot', pH2:`Premium-Abo.<span class="h2b akz">Bis zu ${MAXPCT} % unter Listenpreis</span><span class="h2c">Max. 30 Plätze verfügbar</span>`,
-    allin:['Preis fest für die ganze Laufzeit','Keine Setup-Gebühr','Stelle besetzt? Nächste Stelle drauf.','In der Laufzeit niemand eingestellt? +30 Tage gratis'],
+    allin:['Preis fest für die ganze Laufzeit','Keine Setup-Gebühr','Stelle besetzt? Nächste Stelle drauf.','In der Laufzeit niemand eingestellt? +30&nbsp;Tage gratis'],
     legal:'Alle Preise netto pro Monat je Stelle zzgl. gesetzlicher Umsatzsteuer, nur für Unternehmen. Statt-Preise = reguläre Listenpreise des Premium-Abos auf <a href="https://www.green-careers.de/abo" target="_blank" rel="noopener">green-careers.de/abo</a>. Kauf vom 05.11. bis 30.11.2026, begrenzt auf 30 Plätze.',
     steps:[['01','Eintragen.','Name, E-Mail, Telefon. Unverbindlich.'],['02','Kauf-Link per Mail.','Ab Do 05.11. bekommen Sie den Kauf-Link. Ihr Ansprechpartner meldet sich vorher.'],['03','Stelle geht live.','Wir bauen Ihre Anzeige, die Bewerbungen kommen zu Ihnen.']],
     faq:[['Wer bekommt den Preis?','Betriebe, die schon bei GreenCareers eine Stelle ausgeschrieben haben. Die Plätze sind auf 30 begrenzt.'],
