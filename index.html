@@ -51,6 +51,8 @@ h3{font-size:clamp(20px,2vw,23px);letter-spacing:-0.035em;line-height:1.25}
 section{padding:clamp(56px,6.5vw,104px) 0}
 .sec-head{text-align:center;max-width:760px;margin:0 auto clamp(28px,3.6vw,44px)}
 .sec-head h2{margin-top:12px}
+.h2b{display:block;font-size:.66em;margin-top:6px;letter-spacing:-.03em}
+.h2c{display:block;font-size:.4em;margin-top:8px;color:var(--gc-ink);letter-spacing:-.01em;font-weight:500}
 .sec-head p{margin-top:12px;font-size:clamp(16px,1.4vw,18px)}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:var(--r-btn);font:600 15px/1.2 Poppins,Arial,sans-serif;text-decoration:none;border:0;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s}
@@ -150,7 +152,8 @@ section{padding:clamp(56px,6.5vw,104px) 0}
 .team img{width:32px;height:32px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 0 0 1px var(--gc-line)}
 .team img+img{margin-left:-14px}
 .team b{color:var(--gc-ink)}
-.team[hidden],.pers[hidden],.hnote[hidden],.closer[hidden],.vertrag[hidden]{display:none}
+.team[hidden],.hnote:empty{display:none}
+.pers[hidden],.hnote[hidden],.closer[hidden],.vertrag[hidden]{display:none}
 .pers{display:flex;align-items:center;gap:12px;margin-bottom:12px}
 .pers__logo{width:46px;height:46px;border-radius:10px;background:#fff;display:grid;place-items:center;overflow:hidden;color:var(--gc-action);font-weight:700}
 .pers__logo img{max-width:40px;max-height:40px}
@@ -372,7 +375,6 @@ section{padding:clamp(56px,6.5vw,104px) 0}
               <h3 data-t="doneH">Danke, wir melden uns.</h3>
               <p data-t="doneP">Unser Vertrieb ruft Sie schnellstmöglich zurück.</p>
             </div>
-            <div class="team" id="team"><img src="img/avatar-julian.png" alt=""><img src="img/avatar-liam.png" alt=""><span>Es ruft Sie <b>Julian Kohansal</b> oder <b>Liam Quick</b> aus unserem Vertrieb an.</span></div>
             <p class="hnote" data-t="formNote">Preise netto zzgl. USt., nur für Unternehmen.</p>
             <p class="hnote" id="p-closer" hidden=""></p>
           </div>
@@ -572,6 +574,8 @@ const PREISE = {
 };
 const pct = o => Math.round((o.liste - o.preis) / o.liste * 100);
 const MAXPCT = Math.max(pct(PREISE.bestand['6']), pct(PREISE.bestand['12']));
+/* Abo-Badge: höchste belegbare Ersparnis = Premium 12 M mit 4 Stellen (−30 % Staffel) gegen Statt-Preis, abgerundet */
+const ABO_MAXPCT = Math.floor((1 - PREISE.abo['12'].premium.preis * 0.7 / STATT_PREMIUM_12) * 100);
 
 const PAKETE = {
   einmal: {
@@ -629,14 +633,14 @@ const TEXT = {
     lead:'Ihre Stellenanzeige bei GreenCareers ganz oben, dazu auf Instagram und Facebook. Zum Preis des kleinen Pakets, fest für die ganze Laufzeit.',
     heroBtn:'Premium wählen', hlink:'oder Rückruf anfordern',
     hpreis:`Premium <b>499 €</b> <s>statt ${STATT_PREMIUM_12} €</s> im Monat · 12 Monate · gesamt 5.988 € netto<br><span style="font-size:13px;color:rgb(234 245 220/.8)">Keine Setup-Gebühr · in der Laufzeit niemand eingestellt? +30 Tage gratis</span>`,
-    mrund:'',
-    rund:'',
+    mrund:`bis zu <b>−${ABO_MAXPCT} %</b> Premium-Abo`,
+    rund:`<div><small>bis zu</small><b>−${ABO_MAXPCT} %</b><small>Premium-Abo</small></div>`,
     formKicker:'Kostenloser Rückruf', formH:'Wir rufen Sie zurück.', formBtn:'Rückruf anfordern', formBtnSmall:'unverbindlich · dauert 10 Sekunden',
     formNote:'Preise netto zzgl. USt., nur für Unternehmen.',
     doneH:'Danke, wir melden uns.', doneP:'Unser Vertrieb ruft Sie schnellstmöglich zurück.',
     pOver:'Pakete', pH2:'Premium. <span class="akz">Zum Smart-Preis.</span>',
     allin:['Preis fest für die ganze Laufzeit','Keine Setup-Gebühr','Stelle besetzt? Nächste Stelle drauf.','In der Laufzeit niemand eingestellt? +30 Tage gratis'],
-    legal:'Alle Preise netto pro Monat zzgl. gesetzlicher Umsatzsteuer, nur für Unternehmen und Neukunden. Statt-Preise = reguläre Listenpreise auf <a href="https://www.green-careers.de/abo" target="_blank" rel="noopener">green-careers.de/abo</a>. Black-Month-Preis bei Abschluss vom 16.11. bis 30.11.2026, begrenzt auf 30 Plätze.',
+    legal:`Alle Preise netto pro Monat zzgl. gesetzlicher Umsatzsteuer, nur für Unternehmen und Neukunden. Statt-Preise = reguläre Listenpreise auf <a href="https://www.green-careers.de/abo" target="_blank" rel="noopener">green-careers.de/abo</a>. Black-Month-Preis bei Abschluss vom 16.11. bis 30.11.2026, begrenzt auf 30 Plätze. „Bis zu −${ABO_MAXPCT} %“: Premium 12 Monate mit 4 Stellen, je Stelle ${(PREISE.abo['12'].premium.preis*0.7).toLocaleString('de-DE',{minimumFractionDigits:2})} € statt ${STATT_PREMIUM_12} € im Monat.`,
     steps:[['01','Abo wählen.','Paket, Laufzeit und Stellen wählen oder kurz mit uns sprechen.'],['02','Betrieb zeigen.','Position, Ort, ein paar Bilder. Wir bauen Ihre Anzeige.'],['03','Bewerber kennenlernen.','Laufend passende Bewerbungen, direkt zu Ihnen.']],
     faq:[['Gilt der Preis nur im ersten Monat?','Nein. Ihr Preis bleibt, solange das Abo läuft.'],
          ['Was passiert, wenn meine Stelle besetzt ist?','Sie setzen die nächste offene Stelle auf Ihren Abo-Platz.'],
@@ -651,15 +655,15 @@ const TEXT = {
     topNote:'nur für Bestandskunden', topBtn:'Auf die Warteliste',
     bmLine:'Kauf 05.–30.11. · bis dahin Warteliste',
     h1:'Black-Month-Deal <span class="akz">für Bestandskunden.</span>',
-    lead:'Das Premium-Abo für Ihren nächsten Mitarbeiter, nur für Bestandskunden. Jetzt Platz vormerken, Kauf ab 05.11.',
+    lead:'Das Premium-Abo für Ihren nächsten Mitarbeiter, nur für Bestandskunden. Im November suchen, im Frühjahr 2027 ist die Kolonne komplett.',
     heroBtn:'Auf die Warteliste', hlink:'oder Preise ansehen',
     mrund:`bis zu <b>−${MAXPCT} %</b> Premium-Abo`,
     hpreis:`Ab <b>${PREISE.bestand['12'].preis} €</b> <s>statt ${PREISE.bestand['12'].liste} €</s> im Monat bei 12 Monaten · gesamt ${(PREISE.bestand['12'].preis * 12).toLocaleString('de-DE')} € netto`,
     rund:`<div><small>bis zu</small><b>−${MAXPCT} %</b><small>Premium-Abo</small></div>`,
-    formKicker:'Warteliste · 30 Plätze', formH:'Platz vormerken, ohne zu kaufen.', formBtn:'Auf die Warteliste', formBtnSmall:'unverbindlich · Ihr Ansprechpartner meldet sich ab Di 03.11.',
-    formNote:'Kauf ab Do 05.11. · Preise netto zzgl. USt.',
+    formKicker:'Warteliste · 30 Plätze', formH:'Platz vormerken, ohne zu kaufen.', formBtn:'Auf die Warteliste', formBtnSmall:'unverbindlich · Ihr Ansprechpartner meldet sich in 24–48 Stunden',
+    formNote:'',
     doneH:'Sie sind vorgemerkt.', doneP:'Ihr Ansprechpartner meldet sich ab Di 03.11. bei Ihnen. Buchen können Sie ab Do 05.11. Die 30 Plätze gehen in der Reihenfolge der Einträge.',
-    pOver:'Ihr Angebot', pH2:`Premium-Abo. <span class="akz">Bis zu ${MAXPCT} % unter Listenpreis.</span>`,
+    pOver:'Ihr Angebot', pH2:`Premium-Abo.<span class="h2b akz">Bis zu ${MAXPCT} % unter Listenpreis</span><span class="h2c">Max. 30 Plätze verfügbar</span>`,
     allin:['Preis fest für die ganze Laufzeit','Keine Setup-Gebühr','Stelle besetzt? Nächste Stelle drauf.','In der Laufzeit niemand eingestellt? +30 Tage gratis'],
     legal:'Alle Preise netto pro Monat je Stelle zzgl. gesetzlicher Umsatzsteuer, nur für Unternehmen. Statt-Preise = reguläre Listenpreise des Premium-Abos auf <a href="https://www.green-careers.de/abo" target="_blank" rel="noopener">green-careers.de/abo</a>. Kauf vom 05.11. bis 30.11.2026, begrenzt auf 30 Plätze.',
     steps:[['01','Eintragen.','Name, E-Mail, Telefon. Unverbindlich.'],['02','Kauf-Link per Mail.','Ab Do 05.11. bekommen Sie den Kauf-Link. Ihr Ansprechpartner meldet sich vorher.'],['03','Stelle geht live.','Wir bauen Ihre Anzeige, die Bewerbungen kommen zu Ihnen.']],
@@ -684,7 +688,7 @@ if (MODE === 'bestand') {
   }
   try { const raw = Q.get('p'); if (raw) P = JSON.parse(decodeURIComponent(escape(atob(raw.replace(/-/g,'+').replace(/_/g,'/'))))); } catch (e) { P = {}; }
   if (P.g === 'du') Object.assign(TEXT.bestand, {
-    lead:'Das Premium-Abo für deinen nächsten Mitarbeiter, nur für Bestandskunden. Jetzt Platz vormerken, Kauf ab 05.11.',
+    lead:'Das Premium-Abo für deinen nächsten Mitarbeiter, nur für Bestandskunden. Im November suchen, im Frühjahr 2027 ist die Kolonne komplett.',
     formH:'Platz vormerken, ohne zu kaufen.', doneH:'Du bist vorgemerkt.', doneP:'Dein Ansprechpartner meldet sich ab Di 03.11. bei dir. Buchen kannst du ab Do 05.11. Die 30 Plätze gehen in der Reihenfolge der Einträge.',
     pOver:'Dein Angebot', bandH2:`Dein nächster Mitarbeiter. <span class="akz">Mit bis zu ${MAXPCT} % Preisvorteil.</span>`,
   });
@@ -699,7 +703,6 @@ document.getElementById('steps').innerHTML = T.steps.map(s => `<div class="step 
 document.getElementById('faq').innerHTML = T.faq.map(f => `<details class="rv"><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join('');
 const NEUKUNDEN = MODE !== 'bestand';
 if (!NEUKUNDEN) { document.querySelector('.hero__cta .btn').href = '#formular'; document.querySelector('.hlink').href = '#pakete'; document.querySelector('.beweis')?.remove(); }
-if (NEUKUNDEN) document.getElementById('team').hidden = false;
 if (NEUKUNDEN) { for (const id of ['bandBtn','stickyBtn']) { const b = document.getElementById(id); b.href = '#pakete'; (b.querySelector('span') || b).textContent = 'Paket wählen'; } }
 document.querySelectorAll('[data-only]').forEach(el => { if ((el.dataset.only === 'bestand') === NEUKUNDEN) el.remove(); });
 if (MODE === 'bestand' && P.b) {
@@ -764,7 +767,7 @@ function render() {
       const pr = PREISE.bestand[k], n = stellen[k] || 1;
       return karte(k, PAKETE.bestand[k], pr, n, {
         einheit:`pro Monat netto · ${k} Monate · gesamt ${eur(jeStelle(pr.preis, n) * n * +k)} €`,
-        rund: k === '12' ? `<b>−${pct(pr)} %</b><small>max. 30 Plätze</small>` : `<b>−${pct(pr)} %</b>`,
+        rund: `<b>−${pct(pr)} %</b>`,
         btnTxt:'Jetzt buchen', ersatzTxt: Date.now() < KAUF_AB ? 'Auf die Warteliste' : 'Platz sichern',
         hint: Date.now() < KAUF_AB ? 'Kauf ab Do 05.11., bis dahin Platz auf der Warteliste sichern.' : '',
         phHinweis: LINKS_FREIGEGEBEN ? '' : 'Kauf-Link von Patric eingebaut, klickbar nach seiner Bestätigung (Mo 02.11.)',
@@ -808,12 +811,11 @@ if (MODE !== 'einmal') {
 }
 if (MODE === 'bestand') {
   const ck = String(P.c || '').toLowerCase(), CL = { julian:'Julian Kohansal', liam:'Liam Quick' }[ck], CM = { julian:'julian.kohansal@green-careers.de', liam:'liam.quick@green-careers.de' }[ck];
-  if (CL) { const sm = document.querySelector('#lf button small'); if (sm) sm.textContent = `unverbindlich · ${CL} meldet sich ab Di 03.11.`;
-    const c = document.getElementById('closer'); c.hidden = false;
+  if (CL) { const c = document.getElementById('closer'); c.hidden = false;
     c.innerHTML = `<img src="img/avatar-${ck}.png" alt=""><span><b>${CL}</b>, ${P.g === 'du' ? 'dein' : 'Ihr'} Ansprechpartner<br><a href="mailto:${CM}" style="color:var(--gc-accent)">${CM}</a></span>`; }
   const du = P.g === 'du', lead = document.querySelector('.stage .lead');
   const bezug = P.y ? (du ? `${P.y} hast du bei uns eine Stelle ausgeschrieben. ` : `${P.y} haben Sie bei uns eine Stelle ausgeschrieben. `) : '';
-  if (P.s) lead.textContent = bezug + (du ? `Suchst du wieder ${P.s}? Jetzt Platz vormerken, Kauf ab 05.11.` : `Suchen Sie wieder ${P.s}? Jetzt Platz vormerken, Kauf ab 05.11.`);
+  if (P.s) lead.textContent = bezug + (du ? `Suchst du wieder ${P.s}? Im November suchen, im Frühjahr 2027 ist die Kolonne komplett.` : `Suchen Sie wieder ${P.s}? Im November suchen, im Frühjahr 2027 ist die Kolonne komplett.`);
   else if (bezug) lead.textContent = bezug + lead.textContent;
 }
 
