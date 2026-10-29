@@ -152,8 +152,10 @@ section{padding:clamp(56px,6.5vw,104px) 0}
 .hp-r+.hp-r::before,.hp-n::before{content:"·";margin:0 8px 0 2px;color:rgb(234 245 220/.6)}
 .htrust{display:none}
 .hp-m{display:none}
+.hp-top{color:inherit;text-decoration:none}
+@media(max-width:899px){.hp-top{border:1px solid rgb(198 241 123/.55);background:rgb(198 241 123/.10);border-radius:9px;padding:3px 10px;margin:2px 0}}
 .hp-f{display:none;font-style:normal;font-size:12px;color:rgb(234 245 220/.7)}
-.hpreis s{color:rgb(234 245 220/.6);font-size:.9em;text-decoration-thickness:2px}
+.hpreis s{color:rgb(234 245 220/.82);font-size:1em;font-weight:500;text-decoration-thickness:2px}
 @media(max-width:899px){
   html:not([data-mode="bestand"]) .stage__in>div:first-child{text-align:center}
   html:not([data-mode="bestand"]) .bm,html:not([data-mode="bestand"]) .hero__cta{justify-content:center}
@@ -425,7 +427,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
           <p class="lead" data-t="lead">Ihre Stellenanzeige im GreenCareers-Netzwerk mit 30.000+ Fachkräften der grünen Branche. Alle drei Pakete zum Black-Month-Preis, einmal zahlen, kein Abo.</p>
           <div class="closer" id="closer" hidden=""></div>
           <div class="htrust" id="htrust"><span><b>300+</b> GaLaBau-Betriebe</span><span><b>4,5 ★</b> Google</span><span><b>Ø 45 Tage</b> bis Einstellung</span></div>
-          <div class="hpreis" data-t="hpreis"><span class="hp-r">Smart <b>2.550 €</b> <s>2.990 €</s></span><span class="hp-r">Premium <i class="hp-f">(Vorarbeiter)</i> <b>3.650 €</b> <s>4.290 €</s></span><span class="hp-r hp-m">Exzellenz <b>6.370 €</b> <s>7.490 €</s></span><span class="hp-n">einmalig netto, kein Abo</span></div>
+          <div class="hpreis" data-t="hpreis"><span class="hp-r">Smart <b>2.550 €</b> <s>2.990 €</s></span><a class="hp-r hp-top" href="#karte-premium">Premium <i class="hp-f">(Vorarbeiter)</i> <b>3.650 €</b> <s>4.290 €</s></a><span class="hp-r hp-m">Exzellenz <b>6.370 €</b> <s>7.490 €</s></span><span class="hp-n">einmalig netto, kein Abo</span></div>
           <div class="hero__cta">
             <a class="btn btn-accent" href="#pakete"><span data-t="heroBtn">Paket wählen</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
             <a class="hlink" href="#formular" data-t="hlink">oder Rückruf anfordern</a>
@@ -504,7 +506,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
       <b>2.550 <small>€</small></b>
       <em>einmalig netto · 60 Tage Laufzeit</em>
       <span class="deal">−15 % Black Month</span>
-      <div class="qtynote">Ab 2 Stellen wird jede Stelle günstiger (−10 % bis −30 %)</div>
+      <div class="qtynote"></div>
     </div>
     <hr>
     <div class="feat-l">Im Paket enthalten</div>
@@ -521,7 +523,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
       <b>3.650 <small>€</small></b>
       <em>einmalig netto · 60 Tage Laufzeit</em>
       <span class="deal">−15 % Black Month</span>
-      <div class="qtynote">Ab 2 Stellen wird jede Stelle günstiger (−10 % bis −30 %)</div>
+      <div class="qtynote"></div>
     </div>
     <hr>
     <div class="feat-l">Alles aus Smart, plus</div>
@@ -538,7 +540,7 @@ section{padding:clamp(56px,6.5vw,104px) 0}
       <b>6.370 <small>€</small></b>
       <em>einmalig netto · 90 Tage Laufzeit</em>
       <span class="deal">−15 % Black Month</span>
-      <div class="qtynote">Ab 2 Stellen wird jede Stelle günstiger (−10 % bis −30 %)</div>
+      <div class="qtynote"></div>
     </div>
     <hr>
     <div class="feat-l">Alles aus Premium, plus</div>
@@ -688,7 +690,7 @@ const TEXT = {
     h1:'<span class="l">Mitarbeiter finden</span><span class="l akz">zum Black-Month-Deal.</span>',
     lead:'Ihre Stellenanzeige im GreenCareers-Netzwerk mit 30.000+ Fachkräften der grünen Branche. Alle drei Pakete zum Black-Month-Preis, einmal zahlen, kein Abo.',
     heroBtn:'Paket wählen', hlink:'oder Rückruf anfordern',
-    hpreis:'<span class="hp-r">Smart <b>2.550 €</b> <s>2.990 €</s></span><span class="hp-r">Premium <i class="hp-f">(Vorarbeiter)</i> <b>3.650 €</b> <s>4.290 €</s></span><span class="hp-r hp-m">Exzellenz <b>6.370 €</b> <s>7.490 €</s></span><span class="hp-n">einmalig netto, kein Abo</span>',
+    hpreis:'<span class="hp-r">Smart <b>2.550 €</b> <s>2.990 €</s></span><a class="hp-r hp-top" href="#karte-premium">Premium <i class="hp-f">(Vorarbeiter)</i> <b>3.650 €</b> <s>4.290 €</s></a><span class="hp-r hp-m">Exzellenz <b>6.370 €</b> <s>7.490 €</s></span><span class="hp-n">einmalig netto, kein Abo</span>',
     mrund:'<b>−15 %</b> auf alle Pakete',
     rund:'<div><small>alle Pakete</small><b>−15 %</b></div>',
     formKicker:'Kostenloser Rückruf', formH:'Wir rufen Sie zurück.', formBtn:'Rückruf anfordern', formBtnSmall:'unverbindlich · dauert 10 Sekunden',
@@ -792,7 +794,9 @@ document.getElementById('allin').innerHTML = T.allin.map(c => `<span>${c}</span>
 document.getElementById('steps').innerHTML = T.steps.map(s => `<div class="step rv"><span>${s[0]}</span><h3>${s[1]}</h3><p>${s[2]}</p></div>`).join('');
 document.getElementById('faq').innerHTML = T.faq.map(f => `<details class="rv"><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join('');
 const NEUKUNDEN = MODE !== 'bestand';
-if (MODE === 'abo') document.querySelector('.hero__cta .btn').href = '#karte-premium';
+if (MODE === 'abo') { const hb = document.querySelector('.hero__cta .btn');
+  if (FREIGABE.abo && KAUF.abo['12'].premium) hb.href = '#karte-premium';
+  else { hb.href = '#formular'; hb.querySelector('span').textContent = 'Premium zum Smart-Preis sichern'; } }
 if (!NEUKUNDEN) { document.querySelector('.hero__cta .btn').href = '#formular'; document.querySelector('.hlink').href = '#pakete'; document.querySelector('.beweis')?.remove(); }
 if (NEUKUNDEN) { for (const id of ['bandBtn','stickyBtn']) { const b = document.getElementById(id); b.href = '#pakete'; (b.querySelector('span') || b).textContent = 'Paket wählen'; } }
 document.querySelectorAll('[data-only]').forEach(el => { if ((el.dataset.only === 'bestand') === NEUKUNDEN) el.remove(); });
@@ -845,7 +849,7 @@ function karte(k, p, pr, n, opts) {
       <b>${eur(gesamt)} <small>€</small></b>
       <em>${opts.einheit}</em>
       ${opts.deal ? `<span class="deal">${opts.deal}</span>` : ''}${opts.regulaer ? `<span class="smartnote" style="color:var(--gc-ink-muted)">${opts.regulaer}</span>` : ''}
-      <div class="qtynote">${n > 1 ? `${n} Stellen · ${eur(proStelle)} € je Stelle (−${STAFFEL[n]} % Mengenpreis)` : (NEUKUNDEN ? 'Ab 2 Stellen wird jede Stelle günstiger (−10 % bis −30 %)' : '')}</div>
+      <div class="qtynote">${n > 1 ? `${n} Stellen · ${eur(proStelle)} € je Stelle (−${STAFFEL[n]} % Mengenpreis)` : ''}</div>
     </div>
     <hr>
     <div class="feat-l">${p.featL}</div>
